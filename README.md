@@ -3,7 +3,10 @@ In this era of rapid digital development, architecture diagrams are key tools fo
 
 ## Features
 iCraft Editor is a tool that can help you easily draw excellent three-dimensional architecture diagrams. It aims to help users quickly and easily create exquisite architecture diagrams with the simplest operation and the simplest interface.
-![icraft-editor.gif](https://cdn.nlark.com/yuque/0/2024/gif/133058/1721889947123-e1658a53-fb9d-4044-befd-11373d323f28.gif#clientId=u7183d55b-904f-4&from= drop&id=u887b484b&originHeight=1080&originWidth=1954&originalType=binary&ratio=1&rotation=0&showTitle=false&size=27875762&status=done&style=none&taskId=u0f90ee8c-f695-4f91-bb4b-34baea2ba08&title=) #### Open a new 3D perspective
+
+![icraft-editor.gif](https://cdn.nlark.com/yuque/0/2024/gif/133058/1721889947123-e1658a53-fb9d-4044-befd-11373d323f28.gif#clientId=u7183d55b-904f-4&from= drop&id=u887b484b&originHeight=1080&originWidth=1954&originalType=binary&ratio=1&rotation=0&showTitle=false&size=27875762&status=done&style=none&taskId=u0f90ee8c-f695-4f91-bb4b-34baea2ba08&title=) 
+
+#### Open a new 3D perspective
 Sometimes, the previous 2D architecture diagram may make you feel that the information is not intuitive enough and it is difficult to fully grasp the overall architecture of the system. By using iCraft Editor for 3D design, every element and every level can be presented in three dimensions. You can rotate and zoom freely, examine your architecture from all angles, and easily understand the details and connections.
 As long as you have ideas for structured expression, iCraft Editor can help you present them in three dimensions. The simple and intuitive operation interface, rich graphics library and powerful functions allow you to get started smoothly without professional knowledge. With iCraft Editor, you can freely build, modify and optimize scenes. Free perspective control, external model embedding and other functions ensure that you can perfectly present your ideas from all angles.
 
@@ -30,15 +33,22 @@ Whether it is system architecture planning in software development, or the optim
 ## Practical application
 #### Software architecture design
 In the software architecture design stage, the 3D architecture diagram drawn by iCraft Editor can help team members better understand the overall structure of the system and the relationship between various components. This helps to improve design quality and development efficiency.
+
 ![image.png](https://cdn.nlark.com/yuque/0/2024/png/133058/1721811336900-bdfce86c-77c5-46c4-8329-8d11dd840f23.png#averageHue=%23f7f2e9&clientId=u880b5fa2-9 4f0-4&from=paste&height=870&id=u913dc0 b5&originHeight=870&originWidth=1631&originalType=binary&ratio=1&rotation=0&showTitle=false&size=355941&status=done&style=none&taskId=u16b465aa-ab47-4049-a97b-483c579d892&title=&width=1631)
+
 #### System deployment and maintenance
 During the system deployment and maintenance phase, the 3D architecture diagram drawn by iCraft Editor can intuitively display the various parts of the system and the spatial relationship between them, and even dynamically display the real-time status of components, which helps to quickly locate and solve problems and improve the stability and availability of the system.
+
 ![image.png](https://cdn.nlark.com/yuque/0/2024/png/133058/1721811422050-3d6adf45-238d-43fa-bb71-8fd1a4fd176e.png#averageHue=%2387b25b&clientId=u880b5fa2-94 f0-4&from=paste&height=868&id=u5718d6 72&originHeight=868&originWidth=1628&originalType=binary&ratio=1&rotation=0&showTitle=false&size=765704&status=done&style=none&taskId=u4a68d2ca-057e-4012-aafa-b8f804d11b0&title=&width=1628)
+
 #### Training and Communication
 In training and communication occasions, 3D architecture diagrams drawn with iCraft Editor can attract the audience's attention and improve communication efficiency. By displaying vivid 3D images and animations, complex concepts and technologies can be better explained.
+
 ![image.png](https://cdn.nlark.com/yuque/0/2024/png/133058/1721811075879-f3b33f14-2a18-44fe-8b5c-18b77b5a2d3c.png#averageHue=%23f3f5e5&clientId=u880b5fa2- 94f0-4&from=paste&height=867&id=uf5c9d6 04&originHeight=867&originWidth=1627&originalType=binary&ratio=1&rotation=0&showTitle=false&size=564416&status=done&style=none&taskId=u0ce26de8-4c84-489d-b671-05dfcbeea0a&title=&width=1627)
+
 #### Structural relationship expression
 In various professional fields, some scenes need to do some component disassembly display, such as BOM structure display, etc. Using iCraft Editor can more intuitively display the composition and details of business objects.
+
 ![image.png](https://cdn.nlark.com/yuque/0/2024/png/133058/1721811255016-d3ee98ed-dbee-460f-a482-56f8722d9d07.png#averageHue=%23f3f1ed&clientId=u880b5fa2-94f0 -4&from=paste&height=868&id=uc47e2a 5f&originHeight=868&originWidth=1631&originalType=binary&ratio=1&rotation=0&showTitle=false&size=616117&status=done&style=none&taskId=uab836879-d95e-4782-94a1-0cb926fdf1a&title=&width=1631)
 
 ## Frequently Asked Questions
