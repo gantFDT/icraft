@@ -1,4 +1,7 @@
-Gantang Software launches a new product - iCraft Editor! [https://icraft.gantcloud.com](https://icraft.gantcloud.com)
+# iCraft Editor
+
+[https://icraft.gantcloud.com](https://icraft.gantcloud.com)
+
 In this era of rapid digital development, architecture diagrams are key tools for understanding and designing complex systems, and their presentation methods are also evolving. In the past, we usually drew architecture diagrams in 2D on a plane, which only showed the various parts of the system on the plane, and sometimes it was not easy to show the hierarchical relationship. iCraft Editor is a product we have carefully created to meet this demand. It focuses on the 3D design of architecture diagrams, has a three-dimensional visual effect, can attract attention, improve communication efficiency, and will bring you a new visual experience and convenient operation.
 
 ## Features
