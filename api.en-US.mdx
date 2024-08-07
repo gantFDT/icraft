@@ -1,0 +1,28 @@
+# API
+
+## Prototype
+
+|        Name        |                  description                  |             type              | default | required |
+| :----------------: | :-------------------------------------------: | :---------------------------: | :-----: | :------: |
+|      fileUrl       |             .iplayer file address             |            string             |         |   true   |
+|     showHeader     |          Whether to show the header           |            boolean            |  false  |  false   |
+| showAnimationPanel | Whether to show the animation debugging panel |            boolean            |  false  |  false   |
+|      onClick       |             Click event callback              | (params: ClickParams) => void |         |  false   |
+|      onReady       |                Ready callback                 |          () => void           |         |  false   |
+
+```ts
+interface ClickParams {
+  item: Element3D | null;
+  event: MouseEvent;
+  data: OptionsType | null;
+}
+```
+
+## Instance
+
+|       Name        |                         description                         |             type              |
+| :---------------: | :---------------------------------------------------------: | :---------------------------: |
+|  getElementByKey  |             Get an element by unique identifier             |  (key: string) => Element3D   |
+| getElementsByName |                Get multiple elements by name                | (name: string) => Element3D[] |
+|  getAllElements   | Get all elements of the current scene (excluding subscenes) |       () => Element3D[]       |
+|     showTips      |                 Show element floating tips                  |    (show: boolean) => void    |

@@ -1,0 +1,28 @@
+# API
+
+## Prototype
+
+|        Name        |     description      |             type              | default | required |
+| :----------------: | :------------------: | :---------------------------: | :-----: | :------: |
+|      fileUrl       |  .iplayer 文件地址   |            string             |         |   true   |
+|     showHeader     |     是否显示头部     |            boolean            |  false  |  false   |
+| showAnimationPanel | 是否显示动画调试面板 |            boolean            |  false  |  false   |
+|      onClick       |     点击事件回调     | (params: ClickParams) => void |         |  false   |
+|      onReady       |     准备就绪回调     |          () => void           |         |  false   |
+
+```ts
+interface ClickParams {
+  item: Element3D | null;
+  event: MouseEvent;
+  data: OptionsType | null;
+}
+```
+
+## Instance
+
+|       Name        |             description              |             type              |
+| :---------------: | :----------------------------------: | :---------------------------: |
+|  getElementByKey  |         通过唯一标识获取元素         |  (key: string) => Element3D   |
+| getElementsByName |         通过名称获取多个元素         | (name: string) => Element3D[] |
+|  getAllElements   | 获取当前场景所有元素（不包含子场景） |       () => Element3D[]       |
+|     showTips      |           显示元素悬浮提示           |    (show: boolean) => void    |
