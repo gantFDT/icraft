@@ -11,6 +11,16 @@ iCraft Editor is a tool that can help you easily draw excellent three-dimensiona
 
 ![icraft-editor.gif](https://cdn.nlark.com/yuque/0/2024/gif/133058/1721889947123-e1658a53-fb9d-4044-befd-11373d323f28.gif) 
 
+<video width="100%" controls autoplay muted loop>
+  <source src="https://github.com/gantFDT/icraft/raw/main/public/videos/car.mov" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<video width="100%" controls autoplay muted loop>
+  <source src="https://github.com/gantFDT/icraft/raw/main/public/videos/subscene.mov" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 #### Open a new 3D perspective
 Sometimes, the previous 2D architecture diagram may make you feel that the information is not intuitive enough and it is difficult to fully grasp the overall architecture of the system. By using iCraft Editor for 3D design, every element and every level can be presented in three dimensions. You can rotate and zoom freely, examine your architecture from all angles, and easily understand the details and connections.
 As long as you have ideas for structured expression, iCraft Editor can help you present them in three dimensions. The simple and intuitive operation interface, rich graphics library and powerful functions allow you to get started smoothly without professional knowledge. With iCraft Editor, you can freely build, modify and optimize scenes. Free perspective control, external model embedding and other functions ensure that you can perfectly present your ideas from all angles.
