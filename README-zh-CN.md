@@ -11,15 +11,10 @@ iCraft Editor 是一款可以助你轻松绘制出色的立体架构图的工具
 
 ![icraft-editor.gif](https://github.com/gantFDT/icraft/blob/main/public/images/icraft-editor.gif?raw=true) 
 
-<video width="100%" controls autoplay muted loop>
-  <source src="https://github.com/gantFDT/icraft/raw/main/public/videos/car.mov" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+![icraft-editor.gif](https://github.com/gantFDT/icraft/blob/main/public/images/subscene.gif?raw=true) 
 
-<video width="100%" controls autoplay muted loop>
-  <source src="https://github.com/gantFDT/icraft/raw/main/public/videos/subscene.mov" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+![icraft-editor.gif](https://github.com/gantFDT/icraft/blob/main/public/images/car.gif?raw=true) 
+
 
 #### 开启 3D 新视角
 以往的 2D 架构图有些时候可能让你感到信息不够直观、难以全面把握系统的整体架构。通过使用iCraft Editor  进行3D 化的设计，让每一个元素、每一个层次都立体呈现。你可以自由旋转、缩放，从各个角度审视你的架构，轻松洞察其中的细节和关联。
