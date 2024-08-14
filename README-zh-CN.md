@@ -1,6 +1,6 @@
 # iCraft Editor
 iCraft Editor - 助你轻松绘制出色的立体架构图
-[![iCraft Editor](https://raw.githubusercontent.com/gantFDT/icraft/main/public/images/banner.png)](https://icraft.gantcloud.com)
+[![iCraft Editor](https://gitee.com/favori/icraft/raw/main/public/images/banner.png)](https://icraft.gantcloud.com)
 
 [https://icraft.gantcloud.com](https://icraft.gantcloud.com)
 
