@@ -1,6 +1,6 @@
 # iCraft Editor
 
-[![iCraft Editor](https://github.com/gantFDT/icraft/blob/main/banner.png?raw=true)](https://icraft.gantcloud.com)
+[![iCraft Editor](https://raw.githubusercontent.com/gantFDT/icraft/main/public/banner.png)](https://icraft.gantcloud.com)
 
 [https://icraft.gantcloud.com](https://icraft.gantcloud.com)
 
