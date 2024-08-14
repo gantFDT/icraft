@@ -9,7 +9,7 @@ In this era of rapid digital development, architecture diagrams are key tools fo
 ## Features
 iCraft Editor is a tool that can help you easily draw excellent three-dimensional architecture diagrams. It aims to help users quickly and easily create exquisite architecture diagrams with the simplest operation and the simplest interface.
 
-![icraft-editor.gif](https://cdn.nlark.com/yuque/0/2024/gif/133058/1721889947123-e1658a53-fb9d-4044-befd-11373d323f28.gif) 
+![icraft-editor.gif](https://github.com/gantFDT/icraft/blob/main/public/images/icraft-editor.gif?raw=true) 
 
 <video width="100%" controls autoplay muted loop>
   <source src="https://github.com/gantFDT/icraft/raw/main/public/videos/car.mov" type="video/mp4">

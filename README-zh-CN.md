@@ -9,7 +9,7 @@
 ## 特性
 iCraft Editor 是一款可以助你轻松绘制出色的立体架构图的工具，旨在用最简单的操作，最简单的界面，帮助用户快速、轻松地制作出精美的架构图。
 
-![icraft-editor.gif](https://cdn.nlark.com/yuque/0/2024/gif/133058/1721889947123-e1658a53-fb9d-4044-befd-11373d323f28.gif) 
+![icraft-editor.gif](https://github.com/gantFDT/icraft/blob/main/public/images/icraft-editor.gif?raw=true) 
 
 <video width="100%" controls autoplay muted loop>
   <source src="https://github.com/gantFDT/icraft/raw/main/public/videos/car.mov" type="video/mp4">
