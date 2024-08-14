@@ -9,11 +9,11 @@ iCraft Editor - 助你轻松绘制出色的立体架构图
 ## 特性
 iCraft Editor 是一款可以助你轻松绘制出色的立体架构图的工具，旨在用最简单的操作，最简单的界面，帮助用户快速、轻松地制作出精美的架构图。
 
-![icraft-editor.gif](https://github.com/gantFDT/icraft/blob/main/public/images/icraft-editor.gif?raw=true) 
+![icraft-editor.gif](https://gitee.com/favori/icraft/raw/main/public/images/icraft-editor.gif) 
 
-![icraft-editor.gif](https://github.com/gantFDT/icraft/blob/main/public/images/subscene.gif?raw=true) 
+![icraft-editor.gif](https://gitee.com/favori/icraft/raw/main/public/images/subscene.gif) 
 
-![icraft-editor.gif](https://github.com/gantFDT/icraft/blob/main/public/images/car.gif?raw=true) 
+![icraft-editor.gif](https://gitee.com/favori/icraft/raw/main/public/images/car.gif) 
 
 
 #### 开启 3D 新视角
@@ -44,22 +44,22 @@ iCraft Editor 让你能够清晰地呈现复杂的架构设计。无论是细致
 #### 软件架构设计
 在软件架构设计阶段，使用iCraft Editor绘制出的3D架构图可以帮助团队成员更好地理解系统的整体结构和各个组件之间的关系。这有助于提高设计质量和开发效率。
 
-![image.png](https://raw.githubusercontent.com/gantFDT/icraft/main/public/images/docker.jpg)
+![image.png](https://gitee.com/favori/icraft/raw/main/public/images/docker.jpg)
 
 #### 系统部署和维护
 在系统部署和维护阶段，使用iCraft Editor绘制的3D架构图可以直观地展示系统的各个部分以及它们之间的空间关系, 甚至是动态显示组件的实时状态，这有助于快速定位和解决问题，提高系统的稳定性和可用性。
 
-![image.png](https://raw.githubusercontent.com/gantFDT/icraft/main/public/images/cloud.jpg)
+![image.png](https://gitee.com/favori/icraft/raw/main/public/images/cloud.jpg)
 
 #### 培训和交流
 在培训和交流场合中，使用iCraft Editor绘制的3D架构图可以吸引观众的注意力，提高沟通效率。通过展示生动的3D图像和动画，可以更好地解释复杂的概念和技术。
 
-![image.png](https://raw.githubusercontent.com/gantFDT/icraft/main/public/images/ibom.jpg)
+![image.png](https://gitee.com/favori/icraft/raw/main/public/images/ibom.jpg)
 
 #### 结构关系表达
 在各种专业领域，某些场景需要做一些部件拆解展示，比如BOM结构展示等，使用iCraft Editor可以更直观的展现业务对象的组成和细节。
 
-![image.png](https://raw.githubusercontent.com/gantFDT/icraft/main/public/images/car.jpg)
+![image.png](https://gitee.com/favori/icraft/raw/main/public/images/car.jpg)
 
 ## 常见问题
 #### 如果遇到想要的模型没有怎么办？
