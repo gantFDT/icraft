@@ -2,10 +2,6 @@
  * @Descripttion: 
  * @MainAuthor: 
 -->
-<!--
- * @Descripttion: 
- * @MainAuthor: 
--->
 # How to Transform a 2D Architecture Diagram into a 3D Diagram
 
 A 2D architecture diagram is a simple and intuitive way to represent the system's functions, subsystems, and component hierarchy in a two-dimensional chart. However, as systems evolve, the limitations of 2D diagrams become more apparent. For example, when the system’s functions, subsystems, and components become complex and branching, 2D diagrams can no longer effectively visualize the system architecture.
@@ -43,3 +39,5 @@ At this stage, the 2D architecture diagram is completed just like using 2D graph
 As you can see, the steps to create a 3D architecture diagram are almost identical to creating a 2D one, with the difference being the use of iCraft Editor. iCraft Editor is currently the only software in the world that can draw true 3D architecture diagrams. With 3D architecture diagrams, you can more intuitively represent system architectures and better reflect their complexity.
 
 iCraft Editor website: [https://icraft.gantcloud.com](https://icraft.gantcloud.com)
+
+keywords: system architecture diagram、software architect、IT architecture diagram、network architecture diagram、free architecture software

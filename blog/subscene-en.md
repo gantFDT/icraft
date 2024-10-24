@@ -56,3 +56,5 @@ ps: If you need to use the scene from another file as a subscene of an element i
 Using iCraft Editor allows for quick and easy creation of 3D system architecture diagrams with nested subscenes. It provides powerful features like layered display, information hiding, and flexible interactions, making it especially suitable for showcasing large and complex system architectures. It helps users gradually understand the various layers of a system from the global view to the details, improving the efficiency of system analysis, design, and communication. This method is particularly useful for visualizing distributed systems, microservices architectures, large network topologies, and multi-platform systems.
 
 iCraft Editor official website: https://icraft.gantcloud.com
+
+keywords: system architecture diagram、software architect、IT architecture diagram、network architecture diagram、free architecture software
