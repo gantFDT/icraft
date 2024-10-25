@@ -27,28 +27,28 @@
 ## 以一个实际的3D系统架构图为例，演示如何绘制3D系统架构图
 
 #### 1. 打开iCraft Editor，点击新建文件。
-![](https://raw.githubusercontent.com/gantFDT/icraft/refs/heads/main/public/blog/3d-architecture/1.jpg)
+![system architecture diagram](https://raw.githubusercontent.com/gantFDT/icraft/refs/heads/main/public/blog/3d-architecture/1.jpg)
 
 #### 2. 按快捷键V切换为俯视图，在左侧面板中找到平面元素，拖拽到画布上，划分出大区块，根据需要可以调整平面的效果，如填充颜色、填充透明度、边框颜色、边框粗细、边框虚线等。
-![](https://raw.githubusercontent.com/gantFDT/icraft/refs/heads/main/public/blog/3d-architecture/2.jpg)
+![system architecture diagram](https://raw.githubusercontent.com/gantFDT/icraft/refs/heads/main/public/blog/3d-architecture/2.jpg)
    
 #### 3. 在左侧的组件面板中，找到所需的组件，如数据库、服务器、中间件等，并将其拖拽到画布具体的位置上。一些特殊的组件可以用基本元素加文字的方式来表示。
-![](https://raw.githubusercontent.com/gantFDT/icraft/refs/heads/main/public/blog/3d-architecture/3.jpg)
+![system architecture diagram](https://raw.githubusercontent.com/gantFDT/icraft/refs/heads/main/public/blog/3d-architecture/3.jpg)
 
 #### 4. 根据元素之间的关系来连接元素，如数据库和服务器之间通过网络连接，中间件和服务器之间通过API调用。
-![](https://raw.githubusercontent.com/gantFDT/icraft/refs/heads/main/public/blog/3d-architecture/4.jpg)
+![system architecture diagram](https://raw.githubusercontent.com/gantFDT/icraft/refs/heads/main/public/blog/3d-architecture/4.jpg)
 
 #### 5. 调整元素的位置、大小、颜色等属性，直到达到你想要的效果。
-![](https://raw.githubusercontent.com/gantFDT/icraft/refs/heads/main/public/blog/3d-architecture/5.jpg)
+![system architecture diagram](https://raw.githubusercontent.com/gantFDT/icraft/refs/heads/main/public/blog/3d-architecture/5.jpg)
 
 #### 6. 添加注解文字，描述元素的功能和作用。
-![](https://raw.githubusercontent.com/gantFDT/icraft/refs/heads/main/public/blog/3d-architecture/6.jpg)
+![system architecture diagram](https://raw.githubusercontent.com/gantFDT/icraft/refs/heads/main/public/blog/3d-architecture/6.jpg)
 
 #### 7. 点击预览按钮，演示效果，让其他人能够直观地理解系统架构,我们可以按住Alt+鼠标左键进行旋转,可以从不同的角度观察、解说系统的架构。
-![](https://raw.githubusercontent.com/gantFDT/icraft/refs/heads/main/public/blog/3d-architecture/7.jpg)
+![system architecture diagram](https://raw.githubusercontent.com/gantFDT/icraft/refs/heads/main/public/blog/3d-architecture/7.jpg)
 
 #### 8. 最后保存文件，并分享给其他人。
-![](https://raw.githubusercontent.com/gantFDT/icraft/refs/heads/main/public/blog/3d-architecture/8.jpg)
+![system architecture diagram](https://raw.githubusercontent.com/gantFDT/icraft/refs/heads/main/public/blog/3d-architecture/8.jpg)
 
 
 ## 推荐使用iCraft Editor

@@ -28,37 +28,37 @@ Animations provide attractive visual effects, especially during technical presen
 ## How to Create an Animatable 3D System Architecture Diagram with iCraft Editor
 
 #### 1. Find the necessary technical components from the left panel and drag them to the appropriate positions.
-![](../public/blog/animation/1.jpg)
+![system architecture diagram](../public/blog/animation/1.jpg)
 
 #### 2. Use lines to connect the components based on their relationships.
-![](../public/blog/animation/2.jpg)
+![system architecture diagram](../public/blog/animation/2.jpg)
 
 #### 3. Add annotation text to describe the functions and purposes of the components. Optionally, enable hover text for elements.
-![](../public/blog/animation/3.jpg)
+![system architecture diagram](../public/blog/animation/3.jpg)
 At this point, a static 3D system architecture diagram has been created, but it doesn't yet display dynamic changes.
 
 #### 4. Click the "Animation" toggle button on the toolbar to switch to animation editing mode.
-![](../public/blog/animation/4.jpg)
+![system architecture diagram](../public/blog/animation/4.jpg)
 
 #### 5. You can press the V shortcut to switch to the top view. Based on the desired animation sequence, click on the technical components, lines, and text elements in order. Corresponding animation nodes will be generated in the left panel. The animation sequence follows the node order, which can be adjusted by dragging.
-![](../public/blog/animation/5.jpg)
+![system architecture diagram](../public/blog/animation/5.jpg)
 
 #### 6. In the properties panel of the animation node, you can set the type, duration, and delay of the animation. Here, we use the default animation type for each node: objects and text default to fade-in, and lines default to drawing effects. These settings can be adjusted as needed.
-![](../public/blog/animation/6.jpg)
+![system architecture diagram](../public/blog/animation/6.jpg)
 
 #### 7. In the properties panel of the animation node, click the "Play Animation" button to view the animation effect of that node.
-![](../public/blog/animation/7.jpg)
+![system architecture diagram](../public/blog/animation/7.jpg)
 
 #### 8. To create parallel animations, create a parallel animation folder in the bottom left panel and place the required nodes in it. If you need to switch the viewpoint before a certain animation node, hold Alt + left mouse button to rotate to the appropriate viewpoint. Click "Add Camera Keyframe" to add a camera animation node. When the animation reaches this node, the camera will automatically switch to that viewpoint.
-![](../public/blog/animation/8.jpg)
+![system architecture diagram](../public/blog/animation/8.jpg)
 
 ## Demonstrating an Animatable 3D System Architecture Diagram
 
 #### 1. In animation editing mode, click the preview button and then the play button to view the complete animation sequence of the architecture diagram.
-![](../public/blog/animation/21.gif)
+![system architecture diagram](../public/blog/animation/21.gif)
 
 #### 2. You can also manually control the playback of each node by clicking the next step button or using the right arrow key → on the keyboard to control each node's playback.
-![](../public/blog/animation/22.jpg)
+![system architecture diagram](../public/blog/animation/22.jpg)
 
 ## Recommended: iCraft Editor
 Animatable 3D system architecture diagrams not only offer greater visual appeal but also significantly improve the comprehensibility, operability, and expressiveness of system architectures through dynamic demonstrations, real-time monitoring, and interactive displays. They are ideal for showcasing complex system designs, real-time monitoring, technical presentations, and team collaboration, helping different roles like developers, operations teams, and managers efficiently understand and handle system issues.

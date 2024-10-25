@@ -36,19 +36,19 @@ Nested 3D architecture diagrams help developers and operations teams locate issu
 ## Steps to Create 3D System Architecture Diagrams with Nested Subscenes
 
 #### 1. Open the iCraft Editor software, create a new file or open a previously saved one. In this example, we are using a pre-made AWS architecture diagram.
-![](../public/blog/subscene/1.jpg)
+![system architecture diagram](../public/blog/subscene/1.jpg)
 #### 2. Select an element and click the subscene button from the floating toolbar to enter the subscene of this element.
-![](../public/blog/subscene/2.jpg)
+![system architecture diagram](../public/blog/subscene/2.jpg)
 #### 3. The subscene is also a 3D scene where you can continue adding elements, adjusting positions, and connecting lines until the subscene meets your needs. You can switch to a top-down view with the V shortcut and use flat elements to divide large areas.
-![](../public/blog/subscene/3.jpg)
+![system architecture diagram](../public/blog/subscene/3.jpg)
 #### 4. Then, depending on the actual situation, continue to add technical components and drag them to different positions within the subscene.
-![](../public/blog/subscene/4.jpg)
+![system architecture diagram](../public/blog/subscene/4.jpg)
 #### 5. Connect elements based on their relationships using lines.
-![](../public/blog/subscene/5.jpg)
+![system architecture diagram](../public/blog/subscene/5.jpg)
 #### 6. Finally, add explanatory text to the technical components.
-![](../public/blog/subscene/6.jpg)
+![system architecture diagram](../public/blog/subscene/6.jpg)
 #### 7. Click the top-left return button to exit the subscene and go back to the parent scene.
-![](../public/blog/subscene/7.jpg)
+![system architecture diagram](../public/blog/subscene/7.jpg)
 
 ps: If you need to use the scene from another file as a subscene of an element in the current file, you can click "Import .icraft" from the main menu within the subscene.
 

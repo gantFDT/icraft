@@ -27,28 +27,28 @@ For large distributed systems, microservice architectures, or multi-layer networ
 ## A Step-by-Step Example of Creating a 3D System Architecture Diagram
 
 #### 1. Open iCraft Editor and click to create a new file.
-![](../public/blog/3d-architecture/1.jpg)
+![system architecture diagram](../public/blog/3d-architecture/1.jpg)
 
 #### 2. Press the V shortcut to switch to top view. Find the flat element in the left panel and drag it onto the canvas to divide large areas. Adjust the flat element's properties, such as fill color, fill transparency, border color, border thickness, and dashed borders as needed.
-![](../public/blog/3d-architecture/2.jpg)
+![system architecture diagram](../public/blog/3d-architecture/2.jpg)
 
 #### 3. In the components panel on the left, find the required components, such as databases, servers, middleware, etc., and drag them to their specific positions on the canvas. Special components can be represented by basic elements with text annotations.
-![](../public/blog/3d-architecture/3.jpg)
+![system architecture diagram](../public/blog/3d-architecture/3.jpg)
 
 #### 4. Connect the elements based on their relationships, such as network connections between databases and servers, or API calls between middleware and servers.
-![](../public/blog/3d-architecture/4.jpg)
+![system architecture diagram](../public/blog/3d-architecture/4.jpg)
 
 #### 5. Adjust the position, size, color, and other properties of the elements until you achieve the desired result.
-![](../public/blog/3d-architecture/5.jpg)
+![system architecture diagram](../public/blog/3d-architecture/5.jpg)
 
 #### 6. Add annotation text to describe the functions and roles of the elements.
-![](../public/blog/3d-architecture/6.jpg)
+![system architecture diagram](../public/blog/3d-architecture/6.jpg)
 
 #### 7. Click the preview button to demonstrate the diagram, allowing others to intuitively understand the system architecture. You can hold Alt + left mouse button to rotate and view the architecture from different angles.
-![](../public/blog/3d-architecture/7.jpg)
+![system architecture diagram](../public/blog/3d-architecture/7.jpg)
 
 #### 8. Finally, save the file and share it with others.
-![](../public/blog/3d-architecture/8.jpg)
+![system architecture diagram](../public/blog/3d-architecture/8.jpg)
 
 ## Recommended: iCraft Editor
 You can use free iCraft Editor templates to create 3D system architecture diagrams, making it easier and faster than ever to create 3D diagrams.
