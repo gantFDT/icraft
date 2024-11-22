@@ -16,14 +16,14 @@ In this rapidly developing digital age, architecture diagrams serve as key tools
 - Automatic grid snapping for convenient connection operations
 - Automatic stacking and magnetic attraction of drawing elements
 
-<img src="https://github.com/gantFDT/icraft/blob/main/public/images/website/feature1.png?raw=true" width="100%" alt="icraft-editor" style="border-radius: 10px;" />
+<img src="https://github.com/gantFDT/icraft/blob/main/public/images/website/feature1.png?raw=true" width="50%" alt="icraft-editor" style="border-radius: 10px;" />
 
 ### Immersive Presentation
 - 3D panoramic presentation of your ideas with freely transformable multi-angle views
 - Supports animation playback to convey your design concepts more precisely
 - Seamless switching between sub-scene states to clearly express complex design concepts in layers
 
-<img src="https://github.com/gantFDT/icraft/blob/main/public/images/website/feature2.png?raw=true" width="100%" alt="icraft-editor" style="border-radius: 10px;" />
+<img src="https://github.com/gantFDT/icraft/blob/main/public/images/website/feature2.png?raw=true" width="50%" alt="icraft-editor" style="border-radius: 10px;" />
 
 ### Digital Twin
 - Provides easily embeddable Web rendering components to control 3D element states through APIs
@@ -31,11 +31,11 @@ In this rapidly developing digital age, architecture diagrams serve as key tools
 - 3D scenes intuitively display server, network device, and technical component status
 - Supports custom data integration for flexible connection with various monitoring systems
 
-<img src="https://github.com/gantFDT/icraft/blob/main/public/images/website/server.webp?raw=true" width="32%" alt="icraft-editor" style="border-radius: 10px;" />
+<img src="https://github.com/gantFDT/icraft/blob/main/public/images/website/server.webp?raw=true" width="50%" alt="icraft-editor" style="border-radius: 10px;" />
 
-<img src="https://github.com/gantFDT/icraft/blob/main/public/images/website/E-commerce.webp?raw=true" width="32%" alt="icraft-editor" style="border-radius: 10px;" />
+<img src="https://github.com/gantFDT/icraft/blob/main/public/images/website/E-commerce.webp?raw=true" width="50%" alt="icraft-editor" style="border-radius: 10px;" />
 
-<img src="https://github.com/gantFDT/icraft/blob/main/public/images/website/Refining.webp?raw=true" width="32%" alt="icraft-editor" style="border-radius: 10px;" />
+<img src="https://github.com/gantFDT/icraft/blob/main/public/images/website/Refining.webp?raw=true" width="50%" alt="icraft-editor" style="border-radius: 10px;" />
 
 #### Opening a New 3D Perspective
 Traditional 2D architecture diagrams sometimes lack intuitive information presentation and make it difficult to grasp the overall system architecture. Through iCraft Editor's 3D design, every element and layer is presented in three dimensions. You can freely rotate, zoom, and examine your architecture from various angles, easily discovering details and relationships.
@@ -92,8 +92,6 @@ If possible, you can design or find suitable 3D models externally and upload the
 #### Do I need programming knowledge to use iCraft Editor?
 No programming knowledge is required to use iCraft Editor. It's not just for architecture design but can be used in any scenario requiring structural relationship expression.
 
-#### Is iCraft Editor completely free to use?
-Online use of iCraft Editor is completely free.
 
 #### Can I integrate designed 3D scenes into my other projects?
 You can use iCraft Player for project integration to display 3D scenes, create element interactions, and animate effects. For details, please refer to [iCraft Player](https://github.com/gantFDT/icraft/blob/main/player-react.README.md)

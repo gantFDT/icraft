@@ -18,7 +18,7 @@ iCraft Editor - 助你轻松绘制出色的立体架构图
 网格自动吸附，方便的连线操作
 绘图元素自动堆叠磁吸
 
-<img src="https://github.com/gantFDT/icraft/blob/main/public/images/website/feature1.png?raw=true" width="100%" alt="icraft-editor" style="border-radius: 10px;" />
+<img src="https://github.com/gantFDT/icraft/blob/main/public/images/website/feature1.png?raw=true" width="50%" alt="icraft-editor" style="border-radius: 10px;" />
 
 
 ### 沉浸式呈现
@@ -26,7 +26,7 @@ iCraft Editor - 助你轻松绘制出色的立体架构图
 支持动画播放，将您的设计理念和思路更精确的传递到位
 子场景状态套无缝切换，可以把超复杂的设计概念都分层次的清晰表达
 
-<img src="https://github.com/gantFDT/icraft/blob/main/public/images/website/feature2.png?raw=true" width="100%" alt="icraft-editor" style="border-radius: 10px;" />
+<img src="https://github.com/gantFDT/icraft/blob/main/public/images/website/feature2.png?raw=true" width="50%" alt="icraft-editor" style="border-radius: 10px;" />
 
 
 ### 数字孪生
@@ -34,11 +34,11 @@ iCraft Editor - 助你轻松绘制出色的立体架构图
 3D场景直观展示服务器、网络设备、技术组件的运行状态、报警信息等关键数据，使用户能即时掌控系统健康状况，快速识别和响应异常情况
 支持自定义数据接入，灵活对接各类监控系统和数据源，打造专属的可视化数字孪生平台
 
-<img src="https://github.com/gantFDT/icraft/blob/main/public/images/website/server.webp?raw=true" width="32%" alt="icraft-editor" style="border-radius: 10px;" />
+<img src="https://github.com/gantFDT/icraft/blob/main/public/images/website/server.webp?raw=true" width="50%" alt="icraft-editor" style="border-radius: 10px;" />
 
-<img src="https://github.com/gantFDT/icraft/blob/main/public/images/website/E-commerce.webp?raw=true" width="32%" alt="icraft-editor" style="border-radius: 10px;" />
+<img src="https://github.com/gantFDT/icraft/blob/main/public/images/website/E-commerce.webp?raw=true" width="50%" alt="icraft-editor" style="border-radius: 10px;" />
 
-<img src="https://github.com/gantFDT/icraft/blob/main/public/images/website/Refining.webp?raw=true" width="32%" alt="icraft-editor" style="border-radius: 10px;" />
+<img src="https://github.com/gantFDT/icraft/blob/main/public/images/website/Refining.webp?raw=true" width="50%" alt="icraft-editor" style="border-radius: 10px;" />
 
 
 #### 开启 3D 新视角
@@ -92,9 +92,6 @@ iCraft Editor 让你能够清晰地呈现复杂的架构设计。无论是细致
 
 #### 使用iCraft Editor需要懂编程吗？
 使用iCraft Editor不需要懂编程, iCraft Editor 不只是服务于架构设计，任何需要表达结构关系的场景都可以使用。
-
-#### 使用iCraft Editor是完全免费的吗？
-在线使用iCraft Editor是完全免费的
 
 #### 能把设计好的3D场景集成嵌入在自己的其他项目中吗？
 可以使用iCraft Player进行项目集成，展示3D场景、做元素的联动以及动画效果, 详情请参考 [iCraft Player](https://github.com/gantFDT/icraft/blob/main/player-react.README.md)
