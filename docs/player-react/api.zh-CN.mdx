@@ -1,0 +1,163 @@
+# API
+
+## Player 组件属性
+
+|         Name         |    description     |                           type                            |  default  | required |
+| :------------------: | :----------------: | :-------------------------------------------------------: | :-------: | :------: |
+|         src          | .iplayer 文件地址  |                          string                           |           |   true   |
+|       onClick        |    点击事件回调    |               (params: ClickParams) => void               | undefined |  false   |
+|       onReady        |    准备就绪回调    |          (instance:ICraftPlayerInstance) => void          | undefined |  false   |
+|        addons        |        插件        |              React.ReactNode \| AddonKeys[]               | undefined |  false   |
+| defaultCustomCamera  | 初始自定义相机序号 |                          number                           | undefined |  false   |
+| defaultAnimationPlan |    动画方案序号    |                          number                           | undefined |  false   |
+|     defaultLoop      |    是否循环播放    |                          boolean                          |   false   |  false   |
+|       autoPlay       |    是否自动播放    |                          boolean                          |   false   |  false   |
+|        locale        |       国际化       | \'zh-CN\' \| \'en-US\' \| Record\<string,LocaleInterface> |  'en-US'  |  false   |
+
+**TypeScript 类型**
+
+```ts
+interface ClickParams {
+  instance: Element3D | null;
+  event: MouseEvent;
+  data: OptionsType | null;
+}
+
+type AddonKeys = "CameraBar" | "PlayerBar" | "EnterSubScene" | "ZoomBar" | "ExitSubScene";
+```
+
+## Player 实例方法
+
+|           Name            |               description                |                                 type                                  |
+| :-----------------------: | :--------------------------------------: | :-------------------------------------------------------------------: |
+|          getDom           |                 获取 dom                 |                           () => HTMLElement                           |
+|      getElementByKey      |         通过唯一标识获取元素实例         |                (key: string) => Element3D \| undefined                |
+|     getElementsByName     |         通过名称获取多个元素实例         |                     (name: string) => Element3D[]                     |
+|  getCurrentSceneElements  | 获取当前场景所有元素实例（不包含子场景） |                           () => Element3D[]                           |
+|  getAllSceneElementsData  |  获取当前场景所有元素数据（包含子场景）  |                          () => ElementData[]                          |
+| playAnimationByElementKey |            使元素执行内置动画            | (elementKey: string,animationOptions: AnimationActionOptions) => void |
+|      cancelAnimation      |               取消所有动画               |                              () => void                               |
+|        toogleView         |             切换 2D/3D 视图              |                        (is3D: boolean) => void                        |
+|       toogleCamera        |       切换相机类型（透视 \| 正交）       |                (isPerspectiveCamera: boolean) => void                 |
+|     toogleAutoRotate      |               切换自动旋转               |                    (isAutoRotate: boolean) => void                    |
+|   updateAutoRotateSpeed   |             更新自动旋转速度             |                        (speed: number) => void                        |
+|       changeCustomCamera        |              切换自定义相机              |                        (index: number) => void                        |
+|       enterSubScene       |         进入当前选中元素的子场景         |                              () => void                               |
+|       exitSubScene        |                退出子场景                |                              () => void                               |
+|        tooglePlay         |                 切换播放                 |                              () => void                               |
+|         prevStep          |                  上一步                  |                              () => void                               |
+|         nextStep          |                  下一步                  |                              () => void                               |
+|          replay           |                   重播                   |                              () => void                               |
+|           reset           |                   重置                   |                              () => void                               |
+|        toggleLoop         |                 切换循环                 |                              () => void                               |
+|          zoomIn           |                 视角放大                 |                              () => void                               |
+|          zoomOut          |                 视角缩小                 |                              () => void                               |
+|        resetCamera        |               重置相机视角               |                              () => void                               |
+|        exportImage        |                 导出图片                 |                               ()=>void                                |
+
+**TypeScript 类型**
+
+```ts
+// 元素类型
+type Element3D =
+  | Cube
+  | Cylinder
+  | Text
+  | Area
+  | Icon
+  | Line
+  | Point
+  | Model
+  | CustomModel
+  | ImageModel
+  | Image;
+
+// 元素数据
+interface ElementData {
+  key: string;
+  type: string;
+  options: OptionsType;
+}
+
+// 动画动作自定义数据
+interface AnimationActionOptions {
+  // 动画类型
+  animationType?: AnimationType;
+  // 动画时长
+  animationDuration?: number;
+  // 动画延迟
+  animationDelay?: number;
+  // 动态显示tip
+  animationShowTip?: boolean;
+  // 演说文字
+  tipContent?: string | HTMLElement;
+  // 演说文字颜色
+  tipBackground?: string;
+  // 流线颜色 (只试用于线条元素)
+  flowLineColor?: string;
+  // 流线细度系数,控制中间部分的收缩程度，越大中间部分越突出 (只试用于线条元素)
+  flowLineThinness?: number;
+  // 流线大小系数,控制流线整体的粗细程度 (只试用于线条元素)
+  flowLineSize?: number;
+}
+
+// 动画类型
+enum AnimationType {
+  // 淡入 (只试用于非线条元素)
+  FadeIn = "fadeIn",
+  // 淡出 (只试用于非线条元素)
+  FadeOut = "fadeOut",
+  // 上下浮动 (只试用于非线条元素)
+  UpAndDown = "upAndDown",
+  // 心跳 (只试用于非线条元素)
+  HeartBeat = "heartBeat",
+  // 颜色变化 (只试用于非线条元素)
+  ColorChange = "colorChange",
+  // 跳动 (只试用于非线条元素)
+  Bounce = "bounce",
+  // 旋转 (只试用于非线条元素)
+  Rotate = "rotate",
+  // 进入子场景 (只试用于非线条元素)
+  EnterSubScene = "enterSubScene",
+  // 退出子场景 (只试用于非线条元素)
+  ExitSubScene = "exitSubScene",
+  // 绘制动画 (只试用于线条元素)
+  Draw = "draw",
+  // 流动动画 (只试用于线条元素)
+  Flow = "flow",
+  // 循环流动 (只试用于线条元素)
+  LoopFlow = "loopFlow",
+}
+
+// 自定义语言
+interface LocaleInterface {
+  cameraBar: {
+    speed: string;
+    orthographicCamera: string;
+    perspectiveCamera: string;
+    autoRotate: string;
+  };
+  playerBar: {
+    replay: string;
+    pause: string;
+    play: string;
+    prev: string;
+    next: string;
+    loop: string;
+    reset: string;
+  };
+  enterSubScene: string;
+  exitSubScene: string;
+  zoomBar: {
+    zoomIn: string;
+    zoomOut: string;
+    resetCamera: string;
+  };
+}
+```
+
+## Element3D 实例方法
+
+|    Name     |      description       |            type             |
+| :---------: | :--------------------: | :-------------------------: |
+| setDisabled | 设置不可用状态（置灰） | (disabled: boolean) => void |

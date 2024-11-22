@@ -1,0 +1,259 @@
+import { Callout } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+
+# International E-commerce Real-time Data
+
+This is a visualization example that simulates real-time order flow data from an international e-commerce platform. The example shows the complete logistics chain from order placement to final delivery, including these key nodes:
+
+- 🛍️ New Order Generation
+- 🏭 Order Processing & Warehousing
+- 📦 Shipping Preparation
+- ✈️ International Transit
+- 🛃 Customs Clearance
+- 🚚 Final Delivery Status
+
+The system generates a new random order every 4 seconds, including specific:
+- Product information (brand and model)
+- Order time
+- Recipient information (name and city)
+
+<Callout type="info">
+The animation effects in this example use the `Flow` type to visually demonstrate the order flow process through various stages.
+</Callout>
+
+## Demo
+
+import { Wrap, EcommerceDemo } from "../../../demos";
+
+<Wrap>
+  <EcommerceDemo />
+</Wrap>
+
+## Example Code
+
+<Tabs items={['index.tsx','utils.ts']}>
+  <Tabs.Tab>
+```tsx copy filename=index.tsx
+import {
+  AnimationType,
+  ICraftPlayer,
+  ICraftPlayerInstance
+} from "@icraft/player-react";
+import React, { useRef } from "react";
+import { getEcommerceData } from "./utils";
+
+const style = {
+  width: "100%",
+  height: "100%",
+  position: "relative" as const,
+  overflow: "hidden" as const,
+};
+
+const getCard = (value: string) => {
+  const card = document.createElement("div");
+  card.innerHTML = value;
+  card.style.cssText = `
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    color: #333;
+    max-width: 280px;
+    line-height: 1.5;
+    word-break: break-all;
+  `;
+  return card;
+};
+
+export default () => {
+  const playerRef = useRef<ICraftPlayerInstance>(null);
+  const timerRef = useRef<NodeJS.Timeout>();
+  const currentIndexRef = useRef(0);
+
+  const receiveData = async () => {
+    const player = playerRef.current;
+    if (!player) return;
+    const data = await getEcommerceData();
+
+    const { key, value } = data[currentIndexRef.current];
+    const line = player.getElementsByName(key)?.[0];
+
+    const card = getCard(value);
+    if (line) {
+      player.playAnimationByElementKey(line.key, {
+        animationType: AnimationType.Flow,
+        animationDuration: 3,
+        tipContent: card,
+        animationShowTip: true,
+        flowLineColor: "#1a73e8",
+      });
+    }
+
+    currentIndexRef.current = (currentIndexRef.current + 1) % data.length;
+  };
+
+  React.useEffect(() => {
+    timerRef.current = setInterval(receiveData, 4000);
+
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
+  }, []);
+
+  return (
+    <div style={style}>
+      <ICraftPlayer
+        src='/templates/E-commerce.iplayer'
+        ref={playerRef}
+      />
+    </div>
+  );
+};
+
+```
+  </Tabs.Tab>
+  <Tabs.Tab>
+```ts copy filename=utils.ts
+interface Product {
+  name: string;
+  models: string[];
+}
+
+interface Consumer {
+  name: string;
+  address?: string; 
+}
+
+interface OrderStatus {
+  key: string;
+  icon: string;
+  title: string;
+  messageTemplate: string;
+}
+
+const ORDER_STATUS: OrderStatus[] = [
+  {
+    key: "1",
+    icon: "🛍️",
+    title: "New Order",
+    messageTemplate: "Customer placed order for <strong>{product}</strong> at <strong>{time}</strong>"
+  },
+  {
+    key: "2",
+    icon: "🏭",
+    title: "Processing",
+    messageTemplate: "E-commerce platform transferred <strong>{product}</strong> order to overseas warehouse at <strong>{time}</strong>"
+  },
+  {
+    key: "3",
+    icon: "📦",
+    title: "Shipping Preparation",
+    messageTemplate: "Overseas warehouse dispatched <strong>{product}</strong> to international courier at <strong>{time}</strong>"
+  },
+  {
+    key: "4",
+    icon: "✈️",
+    title: "International Transit",
+    messageTemplate: "International courier sent <strong>{product}</strong> to customs at <strong>{time}</strong>"
+  },
+  {
+    key: "5",
+    icon: "🛃",
+    title: "Customs Cleared",
+    messageTemplate: "Customs released <strong>{product}</strong> to local courier at <strong>{time}</strong>"
+  },
+  {
+    key: "6",
+    icon: "🚚",
+    title: "Out for Delivery",
+    messageTemplate: "Local courier is delivering <strong>{product}</strong> to <strong>{consumer}</strong> at <strong>{time}</strong>"
+  }
+];
+
+const PRODUCTS: Product[] = [
+  {
+    name: 'iPhone',
+    models: ['14 Pro Max', '14 Pro', '14 Plus', '14', '13 Pro', '13']
+  },
+  {
+    name: 'MacBook',
+    models: ['Pro 14"', 'Pro 16"', 'Air M2', 'Air M1']
+  },
+  {
+    name: 'iPad',
+    models: ['Pro 12.9"', 'Pro 11"', 'Air', 'mini']
+  },
+  {
+    name: 'AirPods',
+    models: ['Pro 2', 'Pro', '3rd Gen', 'Max']
+  },
+  {
+    name: 'Apple Watch',
+    models: ['Ultra', 'Series 8', 'SE 2nd Gen']
+  },
+  {
+    name: 'Canon EOS',
+    models: ['R5', 'R6', 'R7', 'R10', '90D']
+  }
+];
+
+const CONSUMERS: Consumer[] = [
+  { name: 'John Smith', address: 'New York' },
+  { name: 'Emma Wilson', address: 'Los Angeles' },
+  { name: 'Michael Brown', address: 'Chicago' },
+  { name: 'Sarah Davis', address: 'Houston' },
+  { name: 'James Johnson', address: 'Phoenix' },
+  { name: 'Emily Taylor', address: 'Philadelphia' }
+];
+
+const getRandomTime = (): string => {
+  const now = new Date();
+  return now.toLocaleTimeString('en-US', {
+    hour12: false,
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  });
+};
+
+const getRandomProduct = (): string => {
+  const product = PRODUCTS[Math.floor(Math.random() * PRODUCTS.length)];
+  const model = product.models[Math.floor(Math.random() * product.models.length)];
+  return `${product.name} ${model}`;
+};
+
+const getRandomConsumer = (): Consumer => {
+  return CONSUMERS[Math.floor(Math.random() * CONSUMERS.length)];
+};
+
+const formatMessage = (template: string, data: Record<string, string>): string => {
+  return Object.entries(data).reduce((message, [key, value]) => {
+    return message.replace(`{${key}}`, value);
+  }, template);
+};
+
+export const getEcommerceData = async () => {
+  const time = getRandomTime();
+  const product = getRandomProduct();
+  const consumer = getRandomConsumer();
+
+  return ORDER_STATUS.map(({ key, icon, title, messageTemplate }) => ({
+    key,
+    value: `
+      <div style="font-weight: bold; color: #1a73e8; margin-bottom: 4px">${icon} ${title}</div>
+      <div>${formatMessage(messageTemplate, {
+      time,
+      product,
+      consumer: `${consumer.name} (${consumer.address})`
+    })}</div>
+    `
+  }));
+};
+
+
+```
+  </Tabs.Tab>
+</Tabs>

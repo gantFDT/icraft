@@ -1,0 +1,495 @@
+import { Callout } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+
+# Server Status Monitor
+
+This is a real-time data visualization example that simulates server cluster status monitoring. It demonstrates how to display real-time operational status data of various service nodes in the scene, including these core features:
+
+- Real-time monitoring of multiple key metrics:
+  - 💻 CPU Usage
+  - 💾 Memory Usage
+  - ⏱️ Service Uptime
+
+- Flexible display options:
+  - Supports hover tooltip display (default)
+  - Supports fixed position display (toggleable via top-left switch)
+  - Data cards feature frosted glass effect
+
+- Intelligent status display:
+  - ✅ Normal operation status (green)
+  - ⚠️ Warning status (yellow, resource usage over 80%)
+  - ❌ Critical status (red, resource usage over 90%)
+
+<Callout type="info">
+Click on service nodes in the scene to view detailed status information. Use the switch in the top-left corner to toggle the data card display mode. Data automatically updates every 100ms to simulate a real monitoring scenario.
+</Callout>
+
+## Demo
+
+import { Wrap, ServerStatusDemo } from "../../../demos";
+
+<Wrap>
+  <ServerStatusDemo />
+</Wrap>
+
+## Example Code
+<Tabs items={['index.tsx','index.module.css', 'StatusCard.tsx', 'StatusCard.module.css', 'interface.ts','utils.ts']}>
+  <Tabs.Tab>
+```tsx copy filename=index.tsx
+
+import { ClickParams, Element3D, ICraftPlayer, ICraftPlayerInstance } from "@icraft/player-react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { getData } from "./utils";
+import { StatusCardProps } from "./interface";
+import StatusCard from "./StatusCard";
+import styles from "./index.module.css";
+
+export default () => {
+  const playerRef = useRef<ICraftPlayerInstance>(null);
+  const [tipContainer, setTipContainer] = useState<HTMLDivElement | null>(null);
+  const [activeService, setActiveService] = useState<string | null>("DTS");
+  const [activeData, setActiveData] = useState<StatusCardProps | null>(null);
+  const [fixed, setFixed] = useState<boolean>(false);
+  const elementRef = useRef<Element3D | null>(null);
+
+  const onReady = () => {
+    const player = playerRef.current;
+    if (!activeService) {
+      return;
+    }
+    const element = player?.getElementsByName(activeService)?.[0];
+    if (!element) return;
+    elementRef.current = element;
+    if (element?.tip) {
+      const container = document.createElement("div");
+      element.tip.updateInnerHTML(container);
+      element.tip.updateVisible(true);
+      setTipContainer(container);
+    }
+  };
+
+  const onClick = (params: ClickParams) => {
+    const { instance: element } = params;
+    const player = playerRef.current;
+    // clear old tip
+    elementRef.current?.tip?.reset();
+
+    // clear old fixed container
+    if (fixed && tipContainer) {
+      tipContainer.remove();
+    }
+
+    elementRef.current = element;
+    if (!element) {
+      setActiveService(null);
+      setTipContainer(null);
+      return;
+    }
+    const activeName = element.options?.name;
+    setActiveService(activeName || null);
+
+    if (fixed) {
+      const container = document.createElement("div");
+      container.style.position = "absolute";
+      container.style.top = "10px";
+      container.style.right = "10px";
+      container.style.zIndex = "100";
+      player?.getDom().appendChild(container);
+      setTipContainer(container);
+    } else {
+      if (element?.tip) {
+        const container = document.createElement("div");
+        element.tip.updateInnerHTML(container);
+        element.tip.updateVisible(true);
+        setTipContainer(container);
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (!activeService) return;
+    const interval = setInterval(() => {
+      setActiveData(getData(activeService));
+    }, 100);
+    return () => clearInterval(interval);
+  }, [activeService]);
+
+  return (
+    <div className={styles.container}>
+      <ICraftPlayer
+        src='/templates/gant-control_platform_en.iplayer'
+        ref={playerRef}
+        onReady={onReady}
+        onClick={onClick}
+        addons={["ZoomBar"]}
+      />
+      <div className={styles.checkbox}>
+        <label className={styles.switch}>
+          <input
+            type='checkbox'
+            checked={fixed}
+            onChange={(e) => setFixed(e.target.checked)}
+          />
+          <span className={styles.slider}></span>
+        </label>
+        <span>fixed</span>
+      </div>
+      {tipContainer &&
+        activeData &&
+        createPortal(
+          <StatusCard
+            serviceName={activeData.serviceName}
+            status={activeData.status}
+            metrics={activeData.metrics}
+          />,
+          tipContainer
+        )}
+    </div>
+  );
+};
+
+```
+  </Tabs.Tab>
+  <Tabs.Tab>
+```css copy filename=index.module.css
+.container{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.checkbox {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 20px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+```
+  </Tabs.Tab>
+  <Tabs.Tab>
+```tsx copy filename=StatusCard.tsx
+import React from "react";
+import styles from "./StatusCard.module.css";
+import { StatusCardProps } from "./interface";
+import { getProgressBarClassName, getStatusDisplay } from "./utils";
+
+const StatusCard: React.FC<StatusCardProps> = ({ serviceName, status, metrics }) => {
+  const statusDisplay = getStatusDisplay(status);
+
+  return (
+    <div className={styles.statusCard}>
+      <div className={styles.content}>
+        <div className={styles.titleRow}>
+          <div className={styles.titleLeft}>
+            <span className={styles.title}>{serviceName}</span>
+          </div>
+          <div className={styles.titleRight}>
+            <span className={styles.checkmark} style={{ color: statusDisplay.color }}>
+              {status === "running" ? "✓" : "×"}
+            </span>
+            <span className={styles.status} style={{ color: statusDisplay.color }}>
+              {statusDisplay.text}
+            </span>
+          </div>
+        </div>
+
+        <div className={styles.metrics}>
+          <div className={styles.metricRow}>
+            <div className={styles.metricLabel}>
+              <span>🔄 CPU Usage</span>
+              <span>{metrics.cpu}%</span>
+            </div>
+            <div className={styles.progressWrapper}>
+              <div 
+                className={getProgressBarClassName(metrics.cpu)}
+                style={{ width: `${metrics.cpu}%` }}
+              />
+            </div>
+
+          </div>
+
+          <div className={styles.metricRow}>
+            <div className={styles.metricLabel}>
+              <span>💾 Memory Usage</span>
+              <span>{metrics.memory}%</span>
+            </div>
+            <div className={styles.progressWrapper}>
+              <div 
+                className={getProgressBarClassName(metrics.memory)}
+                style={{ width: `${metrics.memory}%` }}
+              />
+            </div>
+            
+          </div>
+
+          <div className={styles.uptimeRow}>
+            <span>⏱️ Running Time</span>
+            <div className={styles.uptimeValue}>
+              {metrics.uptime.days}d {metrics.uptime.hours}h {metrics.uptime.minutes}m
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default StatusCard;
+
+```
+  </Tabs.Tab>
+    <Tabs.Tab>
+```css copy filename=StatusCard.module.css
+.statusCard {
+  width: 260px;
+  padding: 12px;
+  position: relative;
+  border-radius: 12px;
+  z-index: 1;
+}
+
+.statusCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: inherit;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  z-index: -1;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 2;
+}
+
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.titleLeft {
+  display: flex;
+  align-items: center;
+}
+
+.titleRight {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: bold;
+}
+
+.title {
+  font-size: 14px;
+  color: #374151;
+  font-weight: bold;
+}
+
+.checkmark {
+  color: #22c55e;
+  margin-right: 2px;
+}
+
+.status {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.lastUpdate {
+  font-size: 13px;
+  color: #6B7280;
+}
+
+.metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.metricRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: #4B5563;
+}
+
+.metricLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progressWrapper {
+  width: 100%;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  background: #22c55e;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.progressBar.warning {
+  background: #f59e0b;
+}
+
+.progressBar.danger {
+  background: #ef4444;
+}
+
+.footer {
+  font-size: 13px;
+  color: #6B7280;
+}
+
+.uptimeRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 4px;
+  padding-top: 4px;
+  font-size: 13px;
+  color: #4B5563;
+}
+
+.uptimeValue {
+  color: #6B7280;
+} 
+```
+  </Tabs.Tab>
+    <Tabs.Tab>
+```tsx copy filename=interface.ts
+export type StatusType = "running" | "stopped" | "error";
+
+export interface StatusCardProps {
+  // Service basic info
+  serviceName: string;
+  status: StatusType;
+  // System metrics
+  metrics: {
+    cpu: number;
+    memory: number;
+    uptime: {
+      days: number;
+      hours: number;
+      minutes: number;
+    };
+  };
+}
+```
+  </Tabs.Tab>
+      <Tabs.Tab>
+```tsx copy filename=utils.ts
+import { StatusCardProps } from "./interface";
+import styles from "./StatusCard.module.css";
+
+export const getFluctuatedValue = (currentValue: number, maxFluctuation: number) => {
+  const fluctuation = (Math.random() * 2 - 1) * maxFluctuation;
+  const newValue = currentValue + fluctuation;
+  return Number(Math.min(Math.max(newValue, 0), 100).toFixed(2));
+};
+
+export const getRandomMetrics = () => {
+  return {
+    cpu: getFluctuatedValue(40, 2),
+    memory: getFluctuatedValue(50, 1),
+    uptime: { days: 1, hours: 2, minutes: 10 },
+  };
+};
+
+export const getData = (serviceName: string) => {
+  return {
+    serviceName,
+    status: "running",
+    metrics: getRandomMetrics()
+  } as StatusCardProps;
+};
+
+export const getProgressBarClassName = (value: number) => {
+  return `${styles.progressBar}${
+    value >= 90 ? ` ${styles.danger}` : 
+    value >= 80 ? ` ${styles.warning}` : 
+    ''
+  }`;
+};
+
+const statusMap = {
+  running: { text: "Running", color: "#22c55e" },
+  stopped: { text: "Stopped", color: "#6B7280" },
+  error: { text: "Error", color: "#EF4444" },
+};
+
+export const getStatusDisplay = (status: StatusCardProps["status"]) => {
+  return statusMap[status];
+};
+
+
+
+```
+  </Tabs.Tab>
+</Tabs>

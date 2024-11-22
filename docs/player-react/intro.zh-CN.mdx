@@ -1,0 +1,43 @@
+# 介绍
+**@icraft/player-react**
+<p style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+  <img src="https://img.shields.io/npm/v/@icraft/player-react.svg" alt="npm version"/>
+  <img src="https://img.shields.io/npm/dm/@icraft/player-react.svg" alt="npm downloads"/>
+</p>
+
+@icraft/player-react 是一个 React 前端组件，可以轻松地将 iCraft Editor 编辑的场景集成到您的项目中，
+并提供丰富的交互事件和方法。
+
+## 快速开始
+
+### 安装
+
+使用 npm 或 pnpm 安装 `@icraft/player-react` 包：
+
+```bash
+# 使用 npm
+npm install @icraft/player-react --save
+
+# 或使用 pnpm
+pnpm install @icraft/player-react --save
+```
+
+提示：某些包管理工具可能不会自动安装 `@icraft/engine` 包, 如报缺失，请手动安装：
+
+```bash
+pnpm install @icraft/engine --save
+```
+
+### 基础使用
+
+在您的项目中导入并使用 `ICraftPlayer` 组件：
+
+```jsx
+import { ICraftPlayer } from "@icraft/player-react";
+
+export default function MyScene() {
+  return <ICraftPlayer src='your-scene.iplayer' />;
+}
+```
+
+其中 `src` 是 iCraft Editor 导出的 `.iplayer` 文件地址。

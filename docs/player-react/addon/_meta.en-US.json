@@ -1,0 +1,7 @@
+{
+  "camerabar": "CameraBar",
+  "zoombar": "ZoomBar",
+  "playerbar": "PlayerBar",
+  "entersubscene": "EnterSubScene",
+  "exitsubscene": "ExitSubScene"
+}

@@ -1,0 +1,47 @@
+# 缩放工具栏
+
+缩放工具栏，用于放大、缩小场景，重置视角
+
+## 如何使用
+
+- 通过配置 `addons={["ZoomBar"]}` 快捷启用缩放工具栏
+- 或通过手动引用 `import { ZoomBar } from "@icraft/player-react"` 手动启用缩放工具栏，手动启用可以更灵活的控制缩放工具栏的样式
+
+import {Wrap, ZoomBarDemo } from "../../../demos";
+
+<Wrap>
+  <ZoomBarDemo />
+</Wrap>
+
+```tsx copy
+import { ICraftPlayer } from "@icraft/player-react";
+
+const style = {
+  width: "100%",
+  height: "100%",
+  position: "relative" as const,
+  overflow: "hidden" as const,
+};
+
+export default () => {
+  return (
+    <div style={style}>
+      <ICraftPlayer
+        src='/templates/NetworkArchitectureSpecial.iplayer'
+        addons={["ZoomBar"]}
+      />
+    </div>
+  );
+};
+
+
+```
+
+
+
+## API
+
+|   Name    | description |        type         | default | required |
+| :-------: | :---------: | :-----------------: | :-----: | :------: |
+|   style   |    样式     | React.CSSProperties |         |  false   |
+| className |    类名     |       string        |         |  false   |

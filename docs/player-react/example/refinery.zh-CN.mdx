@@ -1,0 +1,161 @@
+import { Callout } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+
+# 炼化工厂实时生产数据
+
+这是一个模拟炼化工厂实时生产数据的可视化展示示例。该示例展示了炼化工厂的各个环节的实时数据统计，包含以下关键指标：
+
+- 🛢️ 管道输出量
+- 🚂 铁路运输量
+- 🚛 公路运输量
+- 🚢 水路运输量
+- 📊 总处理量
+- 🏭 1号线路输送量
+- 🏭 2号线路输送量
+
+系统每 100ms 会更新一次数据，模拟实时生产过程中不同路线的输入量和各个运输方式的输出量变化。数据特点：
+
+<Callout type="info">
+示例中的动画效果采用了 `LoopFlow` 类型，通过流动线条直观展示了产品在各个输送管道中的流动过程。
+</Callout>
+
+## 演示效果
+
+import { Wrap, RefineryDemo } from "../../../demos";
+
+<Wrap>
+  <RefineryDemo />
+</Wrap>
+
+## 示例代码
+
+<Tabs items={['index.tsx','utils.ts','types.ts']}>
+  <Tabs.Tab>
+```tsx copy filename=index.tsx
+import { AnimationType, ICraftPlayer, ICraftPlayerInstance } from "@icraft/player-react";
+import { useEffect, useRef } from "react";
+import { getData } from "./utils";
+import { INITIAL_METRICS, LINE_NAMES, RefineryMetricKey } from "./types";
+
+const METRIC_NAMES = Object.keys(INITIAL_METRICS) as RefineryMetricKey[];
+
+const style = {
+  width: "100%",
+  height: "100%",
+  position: "relative" as const,
+  overflow: "hidden" as const,
+};
+
+export default () => {
+  const playerRef = useRef<ICraftPlayerInstance>(null);
+  const timerRef = useRef<NodeJS.Timeout>();
+
+  const updateData = async () => {
+    const player = playerRef.current;
+    if (!player) return;
+    const data = await getData();
+    METRIC_NAMES.forEach((name) => {
+      const element = player.getElementsByName(name)?.[0];
+      if (element && element.typeName === "text") {
+        element.updateAttribute({
+          type: "text",
+          value: data[name].toString(),
+        });
+      }
+    });
+  };
+
+  useEffect(() => {
+    updateData();
+    timerRef.current = setInterval(updateData, 100);
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
+  }, []);
+
+  const onReady = (instance: ICraftPlayerInstance) => {
+    const player = instance;
+    LINE_NAMES.forEach((name) => {
+      const element = player.getElementsByName(name)?.[0];
+      if (element && element.typeName === "line") {
+        player.playAnimationByElementKey(element.key, {
+          animationType: AnimationType.LoopFlow,
+          flowLineColor: "#ffff00",
+          flowLineSize: 0.04,
+        });
+      }
+    });
+  };
+
+  return (
+    <div style={style}>
+      <ICraftPlayer
+        src='/templates/RefineryStatistics.iplayer'
+        ref={playerRef}
+        defaultCustomCamera={4}
+        onReady={onReady}
+      />
+    </div>
+  );
+};
+```
+  </Tabs.Tab>
+
+  <Tabs.Tab>
+```ts copy filename=utils.ts
+import { INITIAL_METRICS, RefineryMetrics, RefineryMetricKey } from './types';
+
+let baseValues: RefineryMetrics = { ...INITIAL_METRICS };
+
+const getRandomIncrement = (min: number, max: number) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+export const getData = async () => {
+  (Object.keys(baseValues) as RefineryMetricKey[]).forEach((key) => {
+    if (key !== 'TotalProcessingNum') {
+      baseValues[key] += getRandomIncrement(1, 5);
+    }
+  });
+  baseValues.TotalProcessingNum = 
+    baseValues.PipelineOutputNum + 
+    baseValues.RailwayOutputNum + 
+    baseValues.HighwayOutputNum + 
+    baseValues.WaterwayOutputNum;
+    
+  return baseValues;
+};
+```
+  </Tabs.Tab>
+
+  <Tabs.Tab>
+```ts copy filename=types.ts
+export type RefineryMetrics = {
+  PipelineOutputNum: number;
+  RailwayOutputNum: number;
+  HighwayOutputNum: number;
+  WaterwayOutputNum: number;
+  TotalProcessingNum: number;
+  "Volume1#": number;
+  "Volume2#": number;
+};
+
+export const INITIAL_METRICS: RefineryMetrics = {
+  PipelineOutputNum: 1000,
+  RailwayOutputNum: 800,
+  HighwayOutputNum: 600,
+  WaterwayOutputNum: 400,
+  TotalProcessingNum: 2800,
+  "Volume1#": 1500,
+  "Volume2#": 1200,
+};
+
+export type RefineryMetricKey = keyof RefineryMetrics;
+
+export const LINE_NAMES = ['Line1', 'Line2', 'Line3', 'Line4', 'Line5', 'Line6', 'Line7', 'Line8', 'Line9', 'Line10', 'Line11'] as const;
+```
+  </Tabs.Tab>
+
+</Tabs>

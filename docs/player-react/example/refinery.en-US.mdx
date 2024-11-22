@@ -1,0 +1,163 @@
+import { Callout } from 'nextra/components'
+import { Tabs } from 'nextra/components'
+
+# Refinery Input and Output Statistics
+
+This is a visualization example that simulates real-time production data from a refinery plant. The example shows real-time statistics from various stages of the refinery, including these key metrics:
+
+- 🛢️ Pipeline Output
+- 🚂 Railway Transport Volume
+- 🚛 Highway Transport Volume
+- 🚢 Waterway Transport Volume
+- 📊 Total Processing Volume
+- 🏭 Line #1 Transport Volume
+- 🏭 Line #2 Transport Volume
+
+The system updates data every 100ms, simulating changes in input volumes across different routes and output volumes across various transport methods during real-time production.
+
+<Callout type="info">
+The animation effects in this example use the `LoopFlow` type to visually demonstrate product flow through various transport pipelines.
+</Callout>
+
+## Demo
+
+import { Wrap, RefineryDemo } from "../../../demos";
+
+<Wrap>
+  <RefineryDemo />
+</Wrap>
+
+## Example Code
+
+
+<Tabs items={['index.tsx','utils.ts','types.ts']}>
+  <Tabs.Tab>
+```tsx copy filename=index.tsx
+import { AnimationType, ICraftPlayer, ICraftPlayerInstance } from "@icraft/player-react";
+import { useEffect, useRef } from "react";
+import { getData } from "./utils";
+import { INITIAL_METRICS, LINE_NAMES, RefineryMetricKey } from "./types";
+
+const METRIC_NAMES = Object.keys(INITIAL_METRICS) as RefineryMetricKey[];
+
+const style = {
+  width: "100%",
+  height: "100%",
+  position: "relative" as const,
+  overflow: "hidden" as const,
+};
+
+export default () => {
+  const playerRef = useRef<ICraftPlayerInstance>(null);
+  const timerRef = useRef<NodeJS.Timeout>();
+
+  const updateData = async () => {
+    const player = playerRef.current;
+    if (!player) return;
+    const data = await getData();
+    METRIC_NAMES.forEach((name) => {
+      const element = player.getElementsByName(name)?.[0];
+      if (element && element.typeName === "text") {
+        element.updateAttribute({
+          type: "text",
+          value: data[name].toString(),
+        });
+      }
+    });
+  };
+
+  useEffect(() => {
+    updateData();
+    timerRef.current = setInterval(updateData, 100);
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
+  }, []);
+
+  const onReady = (instance: ICraftPlayerInstance) => {
+    const player = instance;
+    LINE_NAMES.forEach((name) => {
+      const element = player.getElementsByName(name)?.[0];
+      if (element && element.typeName === "line") {
+        player.playAnimationByElementKey(element.key, {
+          animationType: AnimationType.LoopFlow,
+          flowLineColor: "#ffff00",
+          flowLineSize: 0.04,
+        });
+      }
+    });
+  };
+
+  return (
+    <div style={style}>
+      <ICraftPlayer
+        src='/templates/RefineryStatistics.iplayer'
+        ref={playerRef}
+        defaultCustomCamera={4}
+        onReady={onReady}
+      />
+    </div>
+  );
+};
+```
+  </Tabs.Tab>
+
+  <Tabs.Tab>
+```ts copy filename=utils.ts
+import { INITIAL_METRICS, RefineryMetrics, RefineryMetricKey } from './types';
+
+let baseValues: RefineryMetrics = { ...INITIAL_METRICS };
+
+const getRandomIncrement = (min: number, max: number) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+export const getData = async () => {
+  (Object.keys(baseValues) as RefineryMetricKey[]).forEach((key) => {
+    if (key !== 'TotalProcessingNum') {
+      baseValues[key] += getRandomIncrement(1, 5);
+    }
+  });
+  baseValues.TotalProcessingNum = 
+    baseValues.PipelineOutputNum + 
+    baseValues.RailwayOutputNum + 
+    baseValues.HighwayOutputNum + 
+    baseValues.WaterwayOutputNum;
+    
+  return baseValues;
+};
+```
+  </Tabs.Tab>
+
+  <Tabs.Tab>
+```ts copy filename=types.ts
+export type RefineryMetrics = {
+  PipelineOutputNum: number;
+  RailwayOutputNum: number;
+  HighwayOutputNum: number;
+  WaterwayOutputNum: number;
+  TotalProcessingNum: number;
+  "Volume1#": number;
+  "Volume2#": number;
+};
+
+export const INITIAL_METRICS: RefineryMetrics = {
+  PipelineOutputNum: 1000,
+  RailwayOutputNum: 800,
+  HighwayOutputNum: 600,
+  WaterwayOutputNum: 400,
+  TotalProcessingNum: 2800,
+  "Volume1#": 1500,
+  "Volume2#": 1200,
+};
+
+export type RefineryMetricKey = keyof RefineryMetrics;
+
+export const LINE_NAMES = ['Line1', 'Line2', 'Line3', 'Line4', 'Line5', 'Line6', 'Line7', 'Line8', 'Line9', 'Line10', 'Line11'] as const;
+```
+  </Tabs.Tab>
+
+</Tabs>
+

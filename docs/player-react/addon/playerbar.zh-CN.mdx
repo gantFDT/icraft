@@ -1,0 +1,52 @@
+import { Callout } from 'nextra/components'
+
+
+# 播放控制栏
+
+播放器工具栏，用于播放、暂停、停止、上一步、下一步、循环控制等操作
+
+## 如何使用
+
+- 通过配置 `addons={["PlayerBar"]}` 快捷启用播放器工具栏
+- 或通过手动引用 `import { PlayerBar } from "@icraft/player-react"` 手动启用播放器工具栏，手动启用可以更灵活的控制播放器工具栏的样式
+
+<Callout type="info">
+  播放器播放动画的前置条件是在editor里创建了动画方案
+</Callout>
+
+import {Wrap, PlayerBarDemo } from "../../../demos";
+
+<Wrap>
+  <PlayerBarDemo />
+</Wrap>
+```tsx copy
+import { ICraftPlayer } from "@icraft/player-react";
+
+const style = {
+  width: "100%",
+  height: "100%",
+  position: "relative" as const,
+  overflow: "hidden" as const,
+};
+
+export default () => {
+  return (
+    <div style={style}>
+      <ICraftPlayer
+        src='/templates/ArgoCD.iplayer'
+        addons={["PlayerBar"]}
+      />
+    </div>
+  );
+};
+
+```
+
+
+
+## API
+
+|   Name    | description |        type         | default | required |
+| :-------: | :---------: | :-----------------: | :-----: | :------: |
+|   style   |    样式     | React.CSSProperties |         |  false   |
+| className |    类名     |       string        |         |  false   |

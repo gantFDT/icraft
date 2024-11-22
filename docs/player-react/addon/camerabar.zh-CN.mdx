@@ -1,0 +1,59 @@
+import { Callout } from 'nextra/components'
+
+# 相机工具栏
+
+相机工具栏，用于切换 2D 或 3D 视角，切换透视或正交相机，切换自动旋转，切换自定义相机视角
+
+## 如何使用
+
+- 通过配置 `addons={["CameraBar"]}` 快捷启用相机工具栏
+- 或通过手动引用 `import { CameraBar } from "@icraft/player-react"` 手动启用相机工具栏，手动启用可以更灵活的控制相机工具栏的样式
+
+<Callout type="info">
+  在editor里新增了自定义相机才会显示自定义相机切换控件
+</Callout>
+
+import { Wrap, CameraBarDemo } from "../../../demos";
+
+<Wrap>
+  <CameraBarDemo />
+</Wrap>
+
+```tsx copy
+import { ICraftPlayer, CameraBar } from "@icraft/player-react";
+
+const style = {
+  width: "100%",
+  height: "100%",
+  position: "relative" as const,
+  overflow: "hidden" as const,
+};
+
+const CameraBarStyle = {
+  left: "initial",
+  transform: "translateX(0%)",
+  bottom: "10px",
+  right:'10px'
+};
+
+export default () => {
+  return (
+    <div style={style}>
+      <ICraftPlayer
+        src='/templates/AWSCloud.iplayer'
+        // addons={["CameraBar"]}
+        addons={<><CameraBar style={CameraBarStyle} /></>}
+      />
+    </div>
+  );
+};
+
+
+```
+
+## API
+
+|   Name    | description |        type         | default | required |
+| :-------: | :---------: | :-----------------: | :-----: | :------: |
+|   style   |    样式     | React.CSSProperties |         |  false   |
+| className |    类名     |       string        |         |  false   |

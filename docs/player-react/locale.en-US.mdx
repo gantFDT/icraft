@@ -1,0 +1,131 @@
+# Locale
+
+By passing the `locale` parameter, you can set the language, which mainly affects the text in addons. Chinese and English are supported, and you can also extend it to support other languages.
+
+## Setting Language
+
+Pass `en-US` or `zh-CN` to the `locale` parameter to set the language.
+
+import { Wrap, LocaleDemo, LocaleDemo1 } from "../../demos";
+
+<Wrap>
+  <LocaleDemo />
+</Wrap>
+
+```tsx copy
+import { ICraftPlayer } from "@icraft/player-react";
+
+const style = {
+  width: "100%",
+  height: "100%",
+  position: "relative" as const,
+  overflow: "hidden" as const,
+};
+
+export default () => {
+  return (
+    <div style={style}>
+      <ICraftPlayer
+        src='/templates/NetworkArchitectureSpecial.iplayer'
+        addons={["CameraBar", "EnterSubScene", "ExitSubScene", "ZoomBar"]}
+        locale='en-US'
+      />
+    </div>
+  );
+};
+
+```
+
+## Custom Language
+
+You can customize the language by setting locale to `Record<string, LocaleInterface>`.
+
+<Wrap>
+  <LocaleDemo1 />
+</Wrap>
+
+```tsx copy
+import { ICraftPlayer, LocaleInterface } from "@icraft/player-react";
+
+const style = {
+  width: "100%",
+  height: "100%",
+  position: "relative" as const,
+  overflow: "hidden" as const,
+};
+
+const locale: Record<string, LocaleInterface> = {
+  en_US: {
+    cameraBar: {
+      speed: "Speed",
+      orthographicCamera: "Orthographic Camera",
+      perspectiveCamera: "Perspective Camera",
+      autoRotate: "Auto Rotate",
+    },
+    playerBar: {
+      replay: "Replay",
+      pause: "Pause",
+      play: "Play",
+      prev: "Previous",
+      next: "Next",
+      loop: "Loop",
+      reset: "Reset",
+    },
+    enterSubScene: "Enter Sub-scene",
+    exitSubScene: "Exit Sub-scene",
+    zoomBar: {
+      zoomIn: "Zoom In",
+      zoomOut: "Zoom Out",
+      resetCamera: "Reset Camera",
+    },
+  },
+};
+
+export default () => {
+  return (
+    <div style={style}>
+      <ICraftPlayer
+        src='/templates/NetworkArchitectureSpecial.iplayer'
+        addons={["CameraBar", "EnterSubScene", "ExitSubScene", "ZoomBar"]}
+        locale={locale}
+      />
+    </div>
+  );
+};
+
+```
+
+## API
+
+|  Name  | Description |                           Type                            | Default | Required |
+| :----: | :---------: | :-------------------------------------------------------: | :-----: | :------: |
+| locale | Internationalization | \'zh-CN\' \| \'en-US\' \| Record\<string,LocaleInterface> | 'en-US' |  false   |
+
+### LocaleInterface
+
+```ts
+interface LocaleInterface {
+  cameraBar: {
+    speed: string;
+    orthographicCamera: string;
+    perspectiveCamera: string;
+    autoRotate: string;
+  };
+  playerBar: {
+    replay: string;
+    pause: string;
+    play: string;
+    prev: string;
+    next: string;
+    loop: string;
+    reset: string;
+  };
+  enterSubScene: string;
+  exitSubScene: string;
+  zoomBar: {
+    zoomIn: string;
+    zoomOut: string;
+    resetCamera: string;
+  };
+}
+```

@@ -1,0 +1,65 @@
+# Click Events
+
+By configuring the `onClick` parameter, you can listen to element click events and execute corresponding callback functions.
+
+## Usage Example
+
+Below is an example showing how to handle element click events with the iCraft Player component.
+
+import { Wrap, ClickDemo } from "../../demos";
+
+<Wrap>
+  <ClickDemo />
+</Wrap>
+
+```tsx copy
+import React, { useState } from "react";
+import { ClickParams, ICraftPlayer } from "@icraft/player-react";
+
+export default () => {
+  const [clicked, setClicked] = useState<string>();
+
+  const onClick = (e: ClickParams) => {
+    console.log(e);
+    const { instance: element } = e;
+    setClicked(element?.options?.name || "");
+  };
+
+  return (
+    <div style={style}>
+      <ICraftPlayer
+        src='/templates/AWSCloud.iplayer'
+        onClick={onClick}
+      />
+      <div style={textStyle}>Clicked: {clicked}</div>
+    </div>
+  );
+};
+
+const style = {
+  width: "100%",
+  height: "100%",
+  position: "relative" as const,
+  overflow: "hidden" as const,
+};
+
+const textStyle = {
+  position: "absolute" as const,
+  bottom: 10,
+  right: 10,
+};
+```
+## API
+
+|  Name   | Description |             Type              |  Default  | Required |
+| :-----: | :---------: | :---------------------------: | :-------: | :------: |
+| onClick | Click event callback | (params: ClickParams) => void | undefined |  false   |
+
+### ClickParams
+```ts
+interface ClickParams {
+  instance: Element3D | null;
+  event: MouseEvent;
+  data: OptionsType | null;
+}
+```
