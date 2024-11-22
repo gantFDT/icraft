@@ -1,44 +1,40 @@
 # iCraft Editor
-
-[![iCraft Editor](https://raw.githubusercontent.com/gantFDT/icraft/main/public/images/banner.png)](https://icraft.gantcloud.com)
+iCraft Editor - Help you easily create stunning 3D architecture diagrams
+[![iCraft Editor](https://raw.githubusercontent.com/gantFDT/icraft/main/public/images/banner.jpg)](https://icraft.gantcloud.com)
 
 [https://icraft.gantcloud.com](https://icraft.gantcloud.com)
 
-In this era of rapid digital development, architecture diagrams are key tools for understanding and designing complex systems, and their presentation methods are also evolving. In the past, we usually drew architecture diagrams in 2D on a plane, which only showed the various parts of the system on the plane, and sometimes it was not easy to show the hierarchical relationship. iCraft Editor is a product we have carefully created to meet this demand. It focuses on the 3D design of architecture diagrams, has a three-dimensional visual effect, can attract attention, improve communication efficiency, and will bring you a new visual experience and convenient operation.
-
 ## Features
-iCraft Editor is a tool that can help you easily draw excellent three-dimensional architecture diagrams. It aims to help users quickly and easily create exquisite architecture diagrams with the simplest operation and the simplest interface.
 
-![icraft-editor.gif](https://github.com/gantFDT/icraft/blob/main/public/images/edit.gif?raw=true) 
+### Easy Design
+- Provides exquisite 3D model elements to inspire your creativity
+- Offers example templates to accelerate your design
+- One-click switch between 2D and 3D views
+- Automatic grid snapping for convenient line connections
+- Auto-stacking and magnetic attraction for drawing elements
 
-![icraft-editor.gif](https://github.com/gantFDT/icraft/blob/main/public/images/subscene.gif?raw=true) 
+![icraft-editor](https://github.com/gantFDT/icraft/blob/main/public/images/website/feature1.png?raw=true)
 
-![icraft-editor.gif](https://github.com/gantFDT/icraft/blob/main/public/images/car.gif?raw=true) 
+### Immersive Presentation
+- Present your ideas in 3D panorama with free viewpoint transformation
+- Support animation playback to accurately convey your design concepts
+- Seamless switching between sub-scene states to clearly express complex design concepts in layers
 
+![icraft-editor](https://github.com/gantFDT/icraft/blob/main/public/images/website/feature2.png?raw=true)
 
-#### Open a new 3D perspective
-Sometimes, the previous 2D architecture diagram may make you feel that the information is not intuitive enough and it is difficult to fully grasp the overall architecture of the system. By using iCraft Editor for 3D design, every element and every level can be presented in three dimensions. You can rotate and zoom freely, examine your architecture from all angles, and easily understand the details and connections.
-As long as you have ideas for structured expression, iCraft Editor can help you present them in three dimensions. The simple and intuitive operation interface, rich graphics library and powerful functions allow you to get started smoothly without professional knowledge. With iCraft Editor, you can freely build, modify and optimize scenes. Free perspective control, external model embedding and other functions ensure that you can perfectly present your ideas from all angles.
+### Digital Twin
+- Provides easy-to-embed Web rendering components
+- Control 3D element states through API
+- Achieve real-time synchronization between Web system information and 3D architecture diagrams
+- Visualize dynamic changes in complex systems
+- 3D scenes intuitively display server status, network devices, and technical components
+- Support custom data integration for flexible connection with various monitoring systems
 
-#### Simple and easy-to-use interface
-We know that good tools should not only be powerful, but also easy to use. The design concept of iCraft Editor is to make it easy for every user to get started. It has a simple, friendly and intuitive operation interface. Through the simple layout and clear icons, you can quickly find the tools and functions you need. Even if you are a novice, you can quickly get started in just a few minutes without a complicated learning process and start your creative journey. Allowing you to give full play to your creativity and customize a unique 3D architecture diagram according to your needs, our goal is to enable every user to achieve complex designs through simple operations.
+![icraft-editor](https://github.com/gantFDT/icraft/blob/main/public/images/website/server.webp?raw=true)
 
-#### Rich built-in graphics
-iCraft Editor provides a rich graphics library to meet your diverse needs in various designs.
-Whether it is basic geometric graphics or complex 3D models, you can find them in our graphics library.
-We are constantly expanding and updating the graphics library to ensure that you always have the latest and most comprehensive design elements.
+![icraft-editor](https://github.com/gantFDT/icraft/blob/main/public/images/website/E-commerce.webp?raw=true)
 
-#### Elements can be nested in sub-scenes
-iCraft Editor has a powerful element nesting sub-scene function, which makes your design more layered and flexible. With this function, you can nest multiple sub-scenes in the main scene to achieve modular management and editing of complex designs. Each sub-scene can be edited, previewed and adjusted independently, and you can freely add and modify elements in the sub-scene without affecting the overall layout of the main scene.
-
-#### Embeddable external models
-iCraft Editor supports seamless embedding of external models, further expanding your design possibilities. You can easily import various common 3D file formats, such as GLB, GLTF, etc., and embed externally created models directly into your project. This not only allows you to use existing design results, but also creates more complex and sophisticated works by integrating multiple resources.
-
-#### Clearly present complex architectures
-iCraft Editor allows you to clearly present complex architecture designs. Whether it is meticulous structural details or macro-overall layout planning, iCraft Editor can help you perfectly display every part. With high-precision rendering and free perspective control, you can clearly observe and adjust your design from different angles and levels.
-
-#### Widely used to meet diverse needs
-Whether it is system architecture planning in software development, or the optimization of enterprise business processes, or process route design in professional fields, iCraft Editor can show its prowess. It can help you express your ideas more clearly, design architecture more effectively, and lay a solid foundation for the success of the project.
+![icraft-editor](https://github.com/gantFDT/icraft/blob/main/public/images/website/Refining.webp?raw=true)
 
 ## Practical application
 #### Software architecture design
