@@ -1,0 +1,75 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  margin:24px 0;
+  
+}
+
+.container {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  background: rgba(128,128,128,0.1);
+  border:1px solid rgba(128,128,128,0.1);
+}
+
+.expandBtn {
+  position: absolute;
+  top: -21px;
+  right: 0px;
+  width: 18px;
+  height: 18px;
+  border: none;
+  border-radius: 2px;
+  /* background: rgba(0, 0, 0, 0.08); */
+  color: rgba(128,128,128,0.5);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 100;
+  font-size: 12px;
+}
+
+.expandBtn:hover {
+  background: rgba(128,128,128,0.1);
+  /* transform: scale(1.05); */
+}
+
+.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 1000;
+  padding: 20px;
+  box-sizing: border-box;
+  margin:0;
+}
+
+.fullscreen .container {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+.fullscreen .expandBtn {
+  color: white;
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  background: none;
+}
+
+.fullscreen .expandBtn:hover {
+  
+} 

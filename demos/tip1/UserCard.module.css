@@ -1,0 +1,75 @@
+.miniProfile {
+  width: 240px;
+  padding: 12px;
+  position: relative;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.miniProfile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  z-index: -1;
+}
+
+.avatar {
+  position: relative;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.avatar img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.status {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #666; /* 默认离线状态 */
+}
+
+.status.online {
+  background: #22c55e; /* 在线状态 */
+}
+
+.info {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  z-index: 1;
+}
+
+.info h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.4;
+}
+
+.info p {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.3;
+} 

@@ -1,0 +1,20 @@
+export { default as Wrap } from "./wrap";
+export { default as ClickDemo } from "./click";
+export { default as AddonDemo } from "./addon";
+export { default as AddonDemo1 } from "./addon1";
+export { default as AddonDemo2 } from "./addon2";
+export { default as LocaleDemo } from "./locale";
+export { default as LocaleDemo1 } from "./locale1";
+export { default as PlayerBarDemo } from "./playerbar";
+export { default as CameraBarDemo } from "./camerabar";
+export { default as ZoomBarDemo } from "./zoombar";
+export { default as EnterSubSceneDemo } from "./entersubscene";
+export { default as ExitSubSceneDemo } from "./exitsubscene";
+export { default as AnimationDemo } from "./animation";
+export { default as TipDemo } from "./tip";
+export { default as TipDemo1 } from "./tip1";
+export { default as ServerStatusDemo } from "./serverstatus";
+export { default as EcommerceDemo } from "./ecommerce";
+export { default as IFrameDemo } from "./iframe";
+export { default as RefineryDemo } from "./refinery";
+

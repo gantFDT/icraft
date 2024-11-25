@@ -1,0 +1,130 @@
+.statusCard {
+  width: 260px;
+  padding: 12px;
+  position: relative;
+  border-radius: 12px;
+  z-index: 1;
+}
+
+.statusCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: inherit;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  z-index: -1;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 2;
+}
+
+.titleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.titleLeft {
+  display: flex;
+  align-items: center;
+}
+
+.titleRight {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: bold;
+}
+
+.title {
+  font-size: 14px;
+  color: #374151;
+  font-weight: bold;
+}
+
+.checkmark {
+  color: #22c55e;
+  margin-right: 2px;
+}
+
+.status {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.lastUpdate {
+  font-size: 13px;
+  color: #6B7280;
+}
+
+.metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.metricRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: #4B5563;
+}
+
+.metricLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.progressWrapper {
+  width: 100%;
+  height: 4px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  background: #22c55e;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.progressBar.warning {
+  background: #f59e0b;
+}
+
+.progressBar.danger {
+  background: #ef4444;
+}
+
+.footer {
+  font-size: 13px;
+  color: #6B7280;
+}
+
+.uptimeRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 4px;
+  padding-top: 4px;
+  font-size: 13px;
+  color: #4B5563;
+}
+
+.uptimeValue {
+  color: #6B7280;
+} 
