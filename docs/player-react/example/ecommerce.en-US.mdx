@@ -91,6 +91,7 @@ export default () => {
     }
 
     currentIndexRef.current = (currentIndexRef.current + 1) % data.length;
+    player.changeCustomCamera(currentIndexRef.current,3000);
   };
 
   React.useEffect(() => {

@@ -1,19 +1,18 @@
 # API
 
-## Player Component Props
+## ICraftPlayerOptions
 
-|         Name         |    Description    |                           Type                            |  Default  | Required |
-| :------------------: | :---------------: | :-------------------------------------------------------: | :-------: | :------: |
-|         src          | .iplayer file URL |                          string                           |           |   true   |
-|     fetchOptions     | Fetch options for file request |                        RequestInit                        | undefined |  false   |
-|       onClick        |   Click callback  |               (params: ClickParams) => void               | undefined |  false   |
-|       onReady        |   Ready callback  |          (instance:ICraftPlayerInstance) => void          | undefined |  false   |
-|        addons        |      Addons      |              React.ReactNode \| AddonKeys[]               | undefined |  false   |
-| defaultCustomCamera  | Default custom camera index | number  |         |  false   |
-| defaultAnimationPlan | Default animation plan index | number  |         |  false   |
-|     defaultLoop      | Default loop playback | boolean |  false  |  false   |
-|       autoPlay       |    Auto playback    | boolean |  false  |  false   |
-|        locale        | Internationalization | \'zh-CN\' \| \'en-US\' \| Record\<string,LocaleInterface> |  'en-US'  |  false   |
+|         Name         |    Description     |                  Type                   |  Default  | Required |
+| :------------------: | :----------------: | :-------------------------------------: | :-------: | :------: |
+|      container       |   Container DOM    |             HTMLDivElement              |           |   true   |
+|         src          | .iplayer file URL |                 string                  |           |   true   |
+|     fetchOptions     | Fetch options for file request |               RequestInit               | undefined |  false   |
+|       onClick        |   Click callback   |      (params: ClickParams) => void      | undefined |  false   |
+|       onReady        |   Ready callback   | (instance:ICraftPlayerInstance) => void | undefined |  false   |
+| defaultCustomCamera  | Default custom camera index |                 number                  | undefined |  false   |
+| defaultAnimationPlan | Default animation plan index |                 number                  | undefined |  false   |
+|     defaultLoop      | Default loop playback |                 boolean                 |   false   |  false   |
+|       autoPlay       |    Auto playback    |                 boolean                 |   false   |  false   |
 
 **TypeScript Types**
 
@@ -23,8 +22,6 @@ interface ClickParams {
   event: MouseEvent;
   data: OptionsType | null;
 }
-
-type AddonKeys = "CameraBar" | "PlayerBar" | "EnterSubScene" | "ZoomBar" | "ExitSubScene";
 ```
 
 ## Player Instance Methods
@@ -42,7 +39,7 @@ type AddonKeys = "CameraBar" | "PlayerBar" | "EnterSubScene" | "ZoomBar" | "Exit
 |       toogleCamera        |       Toggle camera type (perspective \| orthographic)       |                (isPerspectiveCamera: boolean) => void                 |
 |     toogleAutoRotate      |               Toggle auto-rotation               |                    (isAutoRotate: boolean) => void                    |
 |   updateAutoRotateSpeed   |             Update auto-rotation speed             |                        (speed: number) => void                        |
-|       changeCustomCamera        |              Switch custom camera              |                        (index: number) => void                        |
+|    changeCustomCamera     |              Switch custom camera              |                        (index: number) => void                        |
 |       enterSubScene       |         Enter sub-scene of current selected element         |                              () => void                               |
 |       exitSubScene        |                Exit sub-scene                |                              () => void                               |
 |        tooglePlay         |                 Toggle play                 |                              () => void                               |
@@ -129,32 +126,6 @@ enum AnimationType {
   Flow = "flow",
   // Loop flow (line elements only)
   LoopFlow = "loopFlow",
-}
-
-// Custom locale
-interface LocaleInterface {
-  cameraBar: {
-    speed: string;
-    orthographicCamera: string;
-    perspectiveCamera: string;
-    autoRotate: string;
-  };
-  playerBar: {
-    replay: string;
-    pause: string;
-    play: string;
-    prev: string;
-    next: string;
-    loop: string;
-    reset: string;
-  };
-  enterSubScene: string;
-  exitSubScene: string;
-  zoomBar: {
-    zoomIn: string;
-    zoomOut: string;
-    resetCamera: string;
-  };
 }
 ```
 

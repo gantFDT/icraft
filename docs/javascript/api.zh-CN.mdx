@@ -1,19 +1,18 @@
 # API
 
-## Player 组件属性
+## ICraftPlayerOptions
 
-|         Name         |     description     |                           type                            |  default  | required |
-| :------------------: | :-----------------: | :-------------------------------------------------------: | :-------: | :------: |
-|         src          |  .iplayer 文件地址  |                          string                           |           |   true   |
-|     fetchOptions     | 文件请求 fetch 配置 |                        RequestInit                        | undefined |  false   |
-|       onClick        |    点击事件回调     |               (params: ClickParams) => void               | undefined |  false   |
-|       onReady        |    准备就绪回调     |          (instance:ICraftPlayerInstance) => void          | undefined |  false   |
-|        addons        |        插件         |              React.ReactNode \| AddonKeys[]               | undefined |  false   |
-| defaultCustomCamera  | 初始自定义相机序号  |                          number                           | undefined |  false   |
-| defaultAnimationPlan |    动画方案序号     |                          number                           | undefined |  false   |
-|     defaultLoop      |    是否循环播放     |                          boolean                          |   false   |  false   |
-|       autoPlay       |    是否自动播放     |                          boolean                          |   false   |  false   |
-|        locale        |       国际化        | \'zh-CN\' \| \'en-US\' \| Record\<string,LocaleInterface> |  'en-US'  |  false   |
+|         Name         |     description     |                  type                   |  default  | required |
+| :------------------: | :-----------------: | :-------------------------------------: | :-------: | :------: |
+|      container       |    容器 DOM 元素    |             HTMLDivElement              |           |   true   |
+|         src          |  .iplayer 文件地址  |                 string                  |           |   true   |
+|     fetchOptions     | 文件请求 fetch 配置 |               RequestInit               | undefined |  false   |
+|       onClick        |    点击事件回调     |      (params: ClickParams) => void      | undefined |  false   |
+|       onReady        |    准备就绪回调     | (instance:ICraftPlayerInstance) => void | undefined |  false   |
+| defaultCustomCamera  | 初始自定义相机序号  |                 number                  | undefined |  false   |
+| defaultAnimationPlan |    动画方案序号     |                 number                  | undefined |  false   |
+|     defaultLoop      |    是否循环播放     |                 boolean                 |   false   |  false   |
+|       autoPlay       |    是否自动播放     |                 boolean                 |   false   |  false   |
 
 **TypeScript 类型**
 
@@ -23,8 +22,6 @@ interface ClickParams {
   event: MouseEvent;
   data: OptionsType | null;
 }
-
-type AddonKeys = "CameraBar" | "PlayerBar" | "EnterSubScene" | "ZoomBar" | "ExitSubScene";
 ```
 
 ## Player 实例方法
@@ -131,31 +128,6 @@ enum AnimationType {
   LoopFlow = "loopFlow",
 }
 
-// 自定义语言
-interface LocaleInterface {
-  cameraBar: {
-    speed: string;
-    orthographicCamera: string;
-    perspectiveCamera: string;
-    autoRotate: string;
-  };
-  playerBar: {
-    replay: string;
-    pause: string;
-    play: string;
-    prev: string;
-    next: string;
-    loop: string;
-    reset: string;
-  };
-  enterSubScene: string;
-  exitSubScene: string;
-  zoomBar: {
-    zoomIn: string;
-    zoomOut: string;
-    resetCamera: string;
-  };
-}
 ```
 
 ## Element3D 实例方法

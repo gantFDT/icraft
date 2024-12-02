@@ -1,0 +1,127 @@
+# Animation
+
+We have built-in animation types that can be executed on elements by calling the player instance method `playAnimationByElementKey`.
+
+## How to Use
+
+After creating an `ICraftPlayer` instance, call the `playAnimationByElementKey` method with the element's `key` and animation parameters to execute the animation. Use the `cancelAnimation` method to cancel the currently playing animation.
+
+import { Wrap } from "../../demos";
+
+<Wrap>
+  <iframe
+    src='/demos/animation.html'
+    style={{ width: "100%", height: "100%", border: "none" }}
+  />
+</Wrap>
+
+```html copy
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>ICraft Player Click Demo</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #container {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+      }
+      #text {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+      }
+    </style>
+    <script src="https://unpkg.com/@icraft/player@latest/dist/umd/icraft-player.min.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="text"></div>
+    </div>
+  </body>
+  <script>
+    const player = new ICraftPlayer({
+      src: "/templates/AWSCloud.iplayer",
+      container: document.getElementById("container"),
+      onReady: (player) => {
+        const user = player.getElementsByName("User")?.[0];
+        if (user) {
+          player.playAnimationByElementKey(user.key, {
+            animationDuration: 100,
+            animationType: ICraftPlayer.AnimationType.Rotate,
+          });
+        }
+      },
+      onClick: (e) => {
+        const { instance: Element } = e;
+        if (!Element) {
+          player?.cancelAnimation();
+          return;
+        }
+        if (Element.typeName !== "line") {
+          player?.playAnimationByElementKey(Element.key, {
+            animationDuration: 3,
+            animationType: ICraftPlayer.AnimationType.HeartBeat,
+            animationShowTip: true,
+          });
+        } else {
+          player?.playAnimationByElementKey(Element.key, {
+            animationDuration: 3,
+            animationType: ICraftPlayer.AnimationType.LoopFlow,
+          });
+        }
+      },
+    });
+  </script>
+</html>
+```
+
+## API
+
+### Functions
+
+|           Name            |          Description           |                                 Type                                  |
+| :-----------------------: | :----------------------------: | :-------------------------------------------------------------------: |
+|     getElementsByName     | Get multiple elements by name  |                     (name: string) => Element3D[]                     |
+| playAnimationByElementKey | Execute built-in animation on element | (elementKey: string,animationOptions: AnimationActionOptions) => void |
+|      cancelAnimation      |      Cancel all animations      |                              () => void                               |
+
+### AnimationActionOptions
+
+|       Name        |                                Description                                |     Type      |       Default        | Required |
+| :---------------: | :-----------------------------------------------------------------------: | :-----------: | :------------------: | :------: |
+|   animationType   |                              Animation type                               | AnimationType | AnimationType.FadeIn |   true   |
+| animationDuration |                          Animation duration (sec)                          |    number     |          2           |   true   |
+|  animationDelay   |                           Animation delay (sec)                           |    number     |          0           |  false   |
+| animationShowTip  |                             Show dynamic tip                              |    boolean    |         true         |  false   |
+|    tipContent     |                             Narration text                              |    string     |        `name`        |  false   |
+|   tipBackground   |                           Narration text color                           |    string     |        white         |  false   |
+|   flowLineColor   |                     Flow line color (line elements only)                  |    string     |         blue         |  false   |
+| flowLineThinness  | Flow line thinness factor - controls middle section contraction (line elements only) |    number     |         0.5          |  false   |
+|   flowLineSize    |        Flow line size factor - controls overall thickness (line elements only)        |    number     |         0.12         |  false   |
+
+### AnimationType
+
+|     Name      |           Description            |
+| :-----------: | :------------------------------: |
+|    FadeIn     |    Fade in (non-line elements)    |
+|    FadeOut    |    Fade out (non-line elements)   |
+|   UpAndDown   |  Float up/down (non-line elements) |
+|   HeartBeat   |    Heartbeat (non-line elements)   |
+|  ColorChange  |  Color change (non-line elements)  |
+|    Bounce     |     Bounce (non-line elements)     |
+|    Rotate     |     Rotate (non-line elements)     |
+| EnterSubScene | Enter sub-scene (non-line elements) |
+| ExitSubScene  | Exit sub-scene (non-line elements)  |
+|     Draw      |    Draw animation (line elements)   |
+|     Flow      |    Flow animation (line elements)   |
+|   LoopFlow    |     Loop flow (line elements)      |

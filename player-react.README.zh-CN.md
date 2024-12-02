@@ -1,7 +1,3 @@
-<!--
- * @Descripttion: 
- * @MainAuthor: 
--->
 # 简介
 **@icraft/player-react**
 <p style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
