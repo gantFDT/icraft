@@ -1,5 +1,7 @@
 # 发布说明 - 1.2.2 (2024-12-2)
 
+![iCraft Editor](https://raw.githubusercontent.com/gantFDT/icraft/main/public/images/banner.jpg)
+
 ## Editor
 ### 新增功能
 - 元素悬浮提示框大小支持相机缩放联动

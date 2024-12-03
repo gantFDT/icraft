@@ -1,5 +1,7 @@
 # Release Notes - 1.2.2 (2024-12-2)
 
+![iCraft Editor](https://raw.githubusercontent.com/gantFDT/icraft/main/public/images/banner.jpg)
+
 ## Editor
 ### New Features
 - Element hover tooltip size now scales with camera zoom
