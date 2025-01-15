@@ -1,4 +1,4 @@
-# 发布说明 - 1.2.4 (2024-1-6)
+# 发布说明 - 1.2.4 (2025-1-6)
 
 ![iCraft Editor](https://raw.githubusercontent.com/gantFDT/icraft/main/public/images/banner.jpg)
 
