@@ -3,7 +3,9 @@ iCraft Editor - Help you easily create stunning 3D architecture diagrams
 
 <img src="https://raw.githubusercontent.com/gantFDT/icraft/main/public/images/banner.jpg" width="100%" alt="icraft-editor" style="border-radius: 10px;" />
 
-[https://icraft.gantcloud.com](https://icraft.gantcloud.com)
+International： [https://icraft.design](https://icraft.design)
+China: [https://icraft.gantcloud.com](https://icraft.gantcloud.com)
+
 
 In this rapidly developing digital age, architecture diagrams serve as key tools for understanding and designing complex systems, and their presentation methods continue to evolve. Traditionally, we created architecture diagrams in 2D, showing system components only on a flat plane, which sometimes made it difficult to display hierarchical relationships. iCraft Editor is our carefully crafted product designed to meet this need, focusing on 3D architectural design with three-dimensional visual effects that capture attention, improve communication efficiency, and bring you a new visual experience with convenient operations.
 
@@ -101,4 +103,6 @@ The transition from 2D to 3D is an inevitable trend in architecture diagram deve
 
 From 2D to 3D, iCraft Editor helps you easily create intuitive three-dimensional architecture diagrams, making complex systems clear at a glance!
 
-iCraft Editor Official Website: [https://icraft.gantcloud.com](https://icraft.gantcloud.com) 
+iCraft Editor Official Website
+International： [https://icraft.design](https://icraft.design)
+China: [https://icraft.gantcloud.com](https://icraft.gantcloud.com)
