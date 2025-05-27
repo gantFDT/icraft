@@ -5,7 +5,6 @@ iCraft Editor - 助你轻松绘制出色的立体架构图
 
 
 International： [https://icraft.design](https://icraft.design)
-
 China: [https://icraft.gantcloud.com](https://icraft.gantcloud.com)
 
 这个数字化飞速发展的时代，架构图作为理解和设计复杂系统的关键工具，其呈现方式也在不断进化。我们以往绘制架构图通常是在平面上进行2D绘制的，只会在平面上展示系统的各个部分，有些时候不太容易展现层次关系。iCraft Editor 正是我们为满足这一需求而精心打造的产品，它专注于架构图的 3D 化设计，具备立体的视觉效果，能吸引注意力，提高沟通效率，将为你带来全新的视觉体验和便利操作。
@@ -103,8 +102,5 @@ iCraft Editor 让你能够清晰地呈现复杂的架构设计。无论是细致
 
 从2D到3D，iCraft 3D编辑器助你轻松绘制直观立体架构图，让复杂系统一目了然！
 
-iCraft Editor官网
-
-International： [https://icraft.design](https://icraft.design)
-
+iCraft Editor官网 International： [https://icraft.design](https://icraft.design)
 China: [https://icraft.gantcloud.com](https://icraft.gantcloud.com)
