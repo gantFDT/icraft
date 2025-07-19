@@ -4,7 +4,7 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <div class="player-wrapper">
-    <HelloWorld src="Data Server Center.iplayer" />
+    <HelloWorld src="demo.iplayer" />
   </div>
 </template>
 

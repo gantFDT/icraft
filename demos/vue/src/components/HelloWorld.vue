@@ -17,6 +17,8 @@ onMounted(() => {
     player = new ICraftPlayer({
       src: props.src,
       container: containerRef.value,
+      autoPlay: true,
+      defaultLoop: true,
     })
   }
 })
