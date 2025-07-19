@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @MainAuthor: 
 -->
-# 发布说明 - 1.4.3 (2025-7-19)
+# 发布说明 - 1.5.0 (2025-7-19)
 
 ![iCraft Editor](https://raw.githubusercontent.com/gantFDT/icraft/main/public/images/banner.jpg)
 
