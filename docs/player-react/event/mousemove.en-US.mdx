@@ -1,0 +1,72 @@
+# Mouse Move Events
+
+By configuring the `onMouseMove` parameter, you can listen to element mouse move events and execute
+corresponding callback functions.
+
+## Usage Example
+
+Below is an example showing how to handle element mouse move events with the iCraft Player
+component.
+
+import { Wrap, MouseMoveDemo } from "../../../demos";
+
+<Wrap>
+  <MouseMoveDemo />
+</Wrap>
+
+```tsx copy
+import React, { useState } from "react";
+import { MouseEventParams, ICraftPlayer } from "@icraft/player-react";
+
+export default () => {
+  const [mouseMoved, setMouseMoved] = useState<string>();
+
+  const onMouseMove = (e: MouseEventParams) => {
+    console.log(e);
+    const { instance: element, data } = e;
+    if (element) {
+      element.active();
+    }
+    setMouseMoved(data?.name || "");
+  };
+
+  return (
+    <div style={style}>
+      <ICraftPlayer
+        src='/templates/AWSCloud.iplayer'
+        onMouseMove={onMouseMove}
+      />
+      <div style={textStyle}>MouseMoved: {mouseMoved}</div>
+    </div>
+  );
+};
+
+const style = {
+  width: "100%",
+  height: "100%",
+  position: "relative" as const,
+  overflow: "hidden" as const,
+};
+
+const textStyle = {
+  position: "absolute" as const,
+  bottom: 10,
+  right: 10,
+};
+```
+
+## API
+
+|    Name     |        Description        |                Type                |  Default  | Required |
+| :---------: | :-----------------------: | :--------------------------------: | :-------: | :------: |
+| onMouseMove | Mouse move event callback | (params: MouseEventParams) => void | undefined |  false   |
+
+### MouseEventParams
+
+```ts
+interface MouseEventParams {
+  instance: Element3D | null;
+  event: MouseEvent;
+  data: OptionsType | null;
+}
+```

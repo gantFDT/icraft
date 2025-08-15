@@ -6,7 +6,10 @@
 | :------------------: | :-----------------: | :-------------------------------------------------------: | :-------: | :------: |
 |         src          |  .iplayer 文件地址  |                          string                           |           |   true   |
 |     fetchOptions     | 文件请求 fetch 配置 |                        RequestInit                        | undefined |  false   |
-|       onClick        |    点击事件回调     |               (params: ClickParams) => void               | undefined |  false   |
+|       onClick        |    点击事件回调     |            (params: MouseEventParams) => void             | undefined |  false   |
+|    onDoubleClick     |    双击事件回调     |            (params: MouseEventParams) => void             | undefined |  false   |
+|     onMouseMove      |  鼠标移动事件回调   |            (params: MouseEventParams) => void             | undefined |  false   |
+|    onContextMenu     |    右键事件回调     |            (params: MouseEventParams) => void             | undefined |  false   |
 |       onReady        |    准备就绪回调     |          (instance:ICraftPlayerInstance) => void          | undefined |  false   |
 |        addons        |        插件         |              React.ReactNode \| AddonKeys[]               | undefined |  false   |
 | defaultCustomCamera  | 初始自定义相机序号  |                          number                           | undefined |  false   |
@@ -18,7 +21,7 @@
 **TypeScript 类型**
 
 ```ts
-interface ClickParams {
+interface MouseEventParams {
   instance: Element3D | null;
   event: MouseEvent;
   data: OptionsType | null;
@@ -158,8 +161,36 @@ interface LocaleInterface {
 }
 ```
 
+## Player 静态方法
+
+|     Name     |   description    |              type              |
+| :----------: | :--------------: | :----------------------------: |
+| defineConfig | 设置静态全局配置 | (config: StaticConfig) => void |
+
+**TypeScript 类型**
+
+```ts
+interface StaticConfig {
+  // 全局字体资源路径，会影响所有文字元素，优先级最高，适用于场景只有一种字体的情况
+  fontUrl?: string;
+  // 全局字体资源定义，适用于场景有多种字体的情况
+  fonts?: FontFamily[];
+  // Draco 解码器路径，默认为unpkg路径，在网络不通unpkg情况下可以自行配置路径
+  dracoDecoderPath?: string;
+}
+
+export interface FontFamily {
+  name: string;
+  styles: {
+    weight: string;
+    fontUrl: string;
+  }[];
+}
+```
+
 ## Element3D 实例方法
 
 |    Name     |      description       |            type             |
 | :---------: | :--------------------: | :-------------------------: |
 | setDisabled | 设置不可用状态（置灰） | (disabled: boolean) => void |
+| setVisible  |    设置元素是否显示    | (visible: boolean) => void  |

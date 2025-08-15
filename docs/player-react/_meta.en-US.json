@@ -1,10 +1,11 @@
 {
   "intro": "Introduction",
   "api": "API",
-  "click": "Click Event",
+  "event": "Event",
   "animation": "Animation",
   "tip": "Tip",
   "addon": "Addon",
   "example": "Example",
-  "locale": "Locale"
+  "locale": "Locale",
+  "font": "Font"
 }

@@ -1,5 +1,7 @@
 {
   "serverstatus": "Server Status Monitor",
   "ecommerce": "International E-commerce Real-time Data",
-  "refinery": "Refinery Input and Output Statistics"
+  "refinery": "Refinery Input and Output Statistics",
+  "mobileecommerce": "International E-commerce Mobile"
 }
+

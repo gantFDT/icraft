@@ -1,0 +1,24 @@
+# Events
+
+Provides common event callbacks, such as click events, double-click events, mouse movement events, right-click events, etc.
+
+## API
+
+|     Name      |        Description         |                  Type                   |  Default  | Required |
+| :-----------: | :-----------------------: | :-------------------------------------: | :-------: | :------: |
+|    onClick    |    Click event callback    |   (params: MouseEventParams) => void    | undefined |  false   |
+| onDoubleClick | Double click event callback |   (params: MouseEventParams) => void    | undefined |  false   |
+|  onMouseMove  | Mouse move event callback  |   (params: MouseEventParams) => void    | undefined |  false   |
+| onContextMenu | Right click event callback |   (params: MouseEventParams) => void    | undefined |  false   |
+|    onReady    |     Ready callback     | (instance:ICraftPlayerInstance) => void | undefined |  false   |
+
+### MouseEventParams
+
+```ts
+interface MouseEventParams {
+  instance: Element3D | null;
+  event: MouseEvent;
+  data: OptionsType | null;
+}
+```
+

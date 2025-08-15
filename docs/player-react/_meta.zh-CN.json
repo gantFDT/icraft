@@ -1,10 +1,11 @@
 {
   "intro": "介绍",
   "api": "API",
-  "click": "点击事件",
+  "event": "事件",
   "animation": "动画",
   "tip": "悬浮提示",
   "addon": "插件",
   "example": "示例",
-  "locale": "国际化"
+  "locale": "国际化",
+  "font": "字体"
 }

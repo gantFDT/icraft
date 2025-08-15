@@ -1,0 +1,315 @@
+import { Callout } from "nextra/components";
+import { FontDownload } from "@/components/fontdownload";
+
+# 字体
+
+由于 iCraft Editor 的绘图字体是基于 WebGL 的，所以字体资源需要单独加载，特别是在内网环境，字体资源需要提前下载到您的项目中。
+
+如不主动设置字体资源，默认使用iCraft Editor 服务器以及谷歌的字体资源。
+
+## 设置字体资源
+
+iCraft Editor 内置了一些系统字体，默认字体为 `AlibabaPuHuiTi`，可以通过 `defineConfig` 静态方法设置字体资源, `fontUrl` 或者 `fonts` 二选一。
+
+### fontUrl
+
+可通过 `fontUrl` 设置全局字体资源，优先级高于 `fonts`，适用于场景只有一种字体的情况
+
+```ts
+import { ICraftPlayer } from "@icraft/player-react";
+
+ICraftPlayer.defineConfig({
+  fontUrl: "https://unpkg.com/@icraft/engine/public/fonts/AlibabaPuHuiTi-3-85-Bold.ttf",
+});
+```
+
+### fonts
+
+可通过 `fonts` 设置字体资源，优先级低于 `fontUrl`，适用于场景有多种字体的情况
+
+```ts
+import { ICraftPlayer } from "@icraft/player-react";
+
+ICraftPlayer.defineConfig({
+  fonts: [
+    {
+      name: "AlibabaPuHuiTi",
+      styles: [
+        {
+          weight: "Bold",
+          fontUrl: "https://unpkg.com/@icraft/engine/public/fonts/AlibabaPuHuiTi-3-85-Bold.ttf",
+        },
+      ],
+    },
+  ],
+});
+```
+
+<Callout type="warning">
+  注意：defineConfig是静态方法，注意需要在最外层、最前面调用
+</Callout>
+
+## 系统字体资源
+
+### 定义
+
+```ts
+interface FontFamily {
+  name: string;
+  styles: {
+    weight: string;
+    fontUrl: string;
+  }[];
+}
+```
+
+```ts
+const FONTS: FontFamily[] = [
+  {
+    name: "AlibabaPuHuiTi",
+    styles: [
+      {
+        weight: "Regular",
+        fontUrl: "https://unpkg.com/@icraft/engine/public/fonts/AlibabaPuHuiTi-3-55-Regular.ttf",
+      },
+      {
+        weight: "Bold",
+        fontUrl: "https://unpkg.com/@icraft/engine/public/fonts/AlibabaPuHuiTi-3-85-Bold.ttf",
+      },
+    ],
+  },
+  {
+    name: "Caveat",
+    styles: [
+      {
+        weight: "Regular",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/Caveat-Regular.ttf",
+      },
+      {
+        weight: "Bold",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/Caveat-Bold.ttf",
+      },
+    ],
+  },
+  {
+    name: "Chakra Petch",
+    styles: [
+      {
+        weight: "Regular",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/ChakraPetch-Regular.ttf",
+      },
+      {
+        weight: "Bold",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/ChakraPetch-Bold.ttf",
+      },
+    ],
+  },
+  {
+    name: "Dancing Script",
+    styles: [
+      {
+        weight: "Regular",
+        fontUrl:
+          "https://storage.googleapis.com/skia-cdn/google-web-fonts/DancingScript-Regular.ttf",
+      },
+      {
+        weight: "Bold",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/DancingScript-Bold.ttf",
+      },
+    ],
+  },
+  {
+    name: "Fredoka",
+    styles: [
+      {
+        weight: "Regular",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/Fredoka-Regular.ttf",
+      },
+      {
+        weight: "Bold",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/Fredoka-Bold.ttf",
+      },
+    ],
+  },
+  {
+    name: "Josefin Sans",
+    styles: [
+      {
+        weight: "Regular",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/JosefinSans-Regular.ttf",
+      },
+      {
+        weight: "Bold",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/JosefinSans-Bold.ttf",
+      },
+    ],
+  },
+  {
+    name: "Noto Sans JP",
+    styles: [
+      {
+        weight: "Regular",
+        fontUrl: "https://unpkg.com/@icraft/engine/public/fonts/NotoSansJP-Regular.ttf",
+      },
+      {
+        weight: "Bold",
+        fontUrl: "https://unpkg.com/@icraft/engine/public/fonts/NotoSansJP-Bold.ttf",
+      },
+    ],
+  },
+  {
+    name: "Noto Sans KR",
+    styles: [
+      {
+        weight: "Regular",
+        fontUrl: "https://unpkg.com/@icraft/engine/public/fonts/NotoSansKR-Regular.ttf",
+      },
+      {
+        weight: "Bold",
+        fontUrl: "https://unpkg.com/@icraft/engine/public/fonts/NotoSansKR-Bold.ttf",
+      },
+    ],
+  },
+  {
+    name: "Noto Sans Cyrillic",
+    styles: [
+      {
+        weight: "Regular",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/NotoSans-Regular.ttf",
+      },
+      {
+        weight: "Bold",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/NotoSans-Bold.ttf",
+      },
+    ],
+  },
+  {
+    name: "Noto Sans Hebrew",
+    styles: [
+      {
+        weight: "Regular",
+        fontUrl:
+          "https://storage.googleapis.com/skia-cdn/google-web-fonts/NotoSansHebrew-Regular.ttf",
+      },
+      {
+        weight: "Bold",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/NotoSansHebrew-Bold.ttf",
+      },
+    ],
+  },
+  {
+    name: "Orbitron",
+    styles: [
+      {
+        weight: "Regular",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/Orbitron-Regular.ttf",
+      },
+      {
+        weight: "Bold",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/Orbitron-Bold.ttf",
+      },
+    ],
+  },
+  {
+    name: "Oswald",
+    styles: [
+      {
+        weight: "Regular",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/Oswald-Regular.ttf",
+      },
+      {
+        weight: "Bold",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/Oswald-Bold.ttf",
+      },
+    ],
+  },
+  {
+    name: "Philosopher",
+    styles: [
+      {
+        weight: "Regular",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/Philosopher-Regular.ttf",
+      },
+      {
+        weight: "Bold",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/Philosopher-Bold.ttf",
+      },
+    ],
+  },
+  {
+    name: "Playfair Display",
+    styles: [
+      {
+        weight: "Regular",
+        fontUrl:
+          "https://storage.googleapis.com/skia-cdn/google-web-fonts/PlayfairDisplay-Regular.ttf",
+      },
+      {
+        weight: "Bold",
+        fontUrl:
+          "https://storage.googleapis.com/skia-cdn/google-web-fonts/PlayfairDisplay-Bold.ttf",
+      },
+    ],
+  },
+  {
+    name: "Poppins",
+    styles: [
+      {
+        weight: "Regular",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/Poppins-Regular.ttf",
+      },
+      {
+        weight: "Bold",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/Poppins-Bold.ttf",
+      },
+    ],
+  },
+  {
+    name: "Quicksand",
+    styles: [
+      {
+        weight: "Regular",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/Quicksand-Regular.ttf",
+      },
+      {
+        weight: "Bold",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/Quicksand-Bold.ttf",
+      },
+    ],
+  },
+  {
+    name: "Roboto",
+    styles: [
+      {
+        weight: "Regular",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/Roboto-Regular.ttf",
+      },
+      {
+        weight: "Bold",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/Roboto-Bold.ttf",
+      },
+      {
+        weight: "Italic",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/Roboto-Italic.ttf",
+      },
+      {
+        weight: "BoldItalic",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/Roboto-BoldItalic.ttf",
+      },
+      {
+        weight: "Black",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/Roboto-Black.ttf",
+      },
+      {
+        weight: "BlackItalic",
+        fontUrl: "https://storage.googleapis.com/skia-cdn/google-web-fonts/Roboto-BlackItalic.ttf",
+      },
+    ],
+  },
+];
+```
+
+### 下载
+
+
+<FontDownload />

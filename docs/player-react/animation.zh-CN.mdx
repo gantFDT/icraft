@@ -16,7 +16,7 @@ import { Wrap, AnimationDemo } from "../../demos";
 ```tsx copy
 import {
   AnimationType,
-  ClickParams,
+  MouseEventParams,
   ICraftPlayer,
   ICraftPlayerInstance,
 } from "@icraft/player-react";
@@ -32,7 +32,7 @@ const style = {
 export default () => {
   const playerRef = React.useRef<ICraftPlayerInstance>();
 
-  const onClick = (e: ClickParams) => {
+  const onClick = (e: MouseEventParams) => {
     const player = playerRef.current;
     const { instance: Element } = e;
     if (!Element) {

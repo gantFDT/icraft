@@ -2,23 +2,25 @@
 
 ## Player Component Props
 
-|         Name         |    Description    |                           Type                            |  Default  | Required |
-| :------------------: | :---------------: | :-------------------------------------------------------: | :-------: | :------: |
-|         src          | .iplayer file URL |                          string                           |           |   true   |
+|         Name         |          Description           |                           Type                            |  Default  | Required |
+| :------------------: | :----------------------------: | :-------------------------------------------------------: | :-------: | :------: |
+|         src          |       .iplayer file URL        |                          string                           |           |   true   |
 |     fetchOptions     | Fetch options for file request |                        RequestInit                        | undefined |  false   |
-|       onClick        |   Click callback  |               (params: ClickParams) => void               | undefined |  false   |
-|       onReady        |   Ready callback  |          (instance:ICraftPlayerInstance) => void          | undefined |  false   |
-|        addons        |      Addons      |              React.ReactNode \| AddonKeys[]               | undefined |  false   |
-| defaultCustomCamera  | Default custom camera index | number  |         |  false   |
-| defaultAnimationPlan | Default animation plan index | number  |         |  false   |
-|     defaultLoop      | Default loop playback | boolean |  false  |  false   |
-|       autoPlay       |    Auto playback    | boolean |  false  |  false   |
-|        locale        | Internationalization | \'zh-CN\' \| \'en-US\' \| Record\<string,LocaleInterface> |  'en-US'  |  false   |
+|       onClick        |         Click callback         |            (params: MouseEventParams) => void             | undefined |  false   |
+|    onDoubleClick     |     Double click callback      |            (params: MouseEventParams) => void             | undefined |  false   |
+|     onMouseMove      |      Mouse move callback       |            (params: MouseEventParams) => void             | undefined |  false   |
+|       onReady        |         Ready callback         |          (instance:ICraftPlayerInstance) => void          | undefined |  false   |
+|        addons        |             Addons             |              React.ReactNode \| AddonKeys[]               | undefined |  false   |
+| defaultCustomCamera  |  Default custom camera index   |                          number                           |           |  false   |
+| defaultAnimationPlan |  Default animation plan index  |                          number                           |           |  false   |
+|     defaultLoop      |     Default loop playback      |                          boolean                          |   false   |  false   |
+|       autoPlay       |         Auto playback          |                          boolean                          |   false   |  false   |
+|        locale        |      Internationalization      | \'zh-CN\' \| \'en-US\' \| Record\<string,LocaleInterface> |  'en-US'  |  false   |
 
 **TypeScript Types**
 
 ```ts
-interface ClickParams {
+interface MouseEventParams {
   instance: Element3D | null;
   event: MouseEvent;
   data: OptionsType | null;
@@ -29,33 +31,33 @@ type AddonKeys = "CameraBar" | "PlayerBar" | "EnterSubScene" | "ZoomBar" | "Exit
 
 ## Player Instance Methods
 
-|           Name            |               Description                |                                 Type                                  |
-| :-----------------------: | :--------------------------------------: | :-------------------------------------------------------------------: |
-|          getDom           |                 Get DOM                  |                           () => HTMLElement                           |
-|      getElementByKey      |           Get element by unique key      |                (key: string) => Element3D \| undefined                |
-|     getElementsByName     |          Get multiple elements by name   |                     (name: string) => Element3D[]                     |
+|           Name            |                            Description                            |                                 Type                                  |
+| :-----------------------: | :---------------------------------------------------------------: | :-------------------------------------------------------------------: |
+|          getDom           |                              Get DOM                              |                           () => HTMLElement                           |
+|      getElementByKey      |                     Get element by unique key                     |                (key: string) => Element3D \| undefined                |
+|     getElementsByName     |                   Get multiple elements by name                   |                     (name: string) => Element3D[]                     |
 |  getCurrentSceneElements  | Get all element instances in current scene (excluding sub-scenes) |                           () => Element3D[]                           |
-|  getAllSceneElementsData  |  Get all element data in current scene (including sub-scenes)  |                          () => ElementData[]                          |
-| playAnimationByElementKey |            Execute built-in animation on element            | (elementKey: string,animationOptions: AnimationActionOptions) => void |
-|      cancelAnimation      |               Cancel all animations               |                              () => void                               |
-|        toogleView         |             Toggle 2D/3D view              |                        (is3D: boolean) => void                        |
-|       toogleCamera        |       Toggle camera type (perspective \| orthographic)       |                (isPerspectiveCamera: boolean) => void                 |
-|     toogleAutoRotate      |               Toggle auto-rotation               |                    (isAutoRotate: boolean) => void                    |
-|   updateAutoRotateSpeed   |             Update auto-rotation speed             |                        (speed: number) => void                        |
-|       changeCustomCamera        |              Switch custom camera              |                        (index: number) => void                        |
-|       enterSubScene       |         Enter sub-scene of current selected element         |                              () => void                               |
-|       exitSubScene        |                Exit sub-scene                |                              () => void                               |
-|        tooglePlay         |                 Toggle play                 |                              () => void                               |
-|         prevStep          |                  Previous step                  |                              () => void                               |
-|         nextStep          |                  Next step                  |                              () => void                               |
-|          replay           |                   Replay                   |                              () => void                               |
-|           reset           |                   Reset                   |                              () => void                               |
-|        toggleLoop         |                 Toggle loop                 |                              () => void                               |
-|          zoomIn           |                 Zoom in                 |                              () => void                               |
-|          zoomOut          |                 Zoom out                 |                              () => void                               |
-|        resetCamera        |               Reset camera view               |                              () => void                               |
-|        exportImage        |               Export image               |                               ()=>void                                |
-|       openFileByUrl       |            Open file by URL             |             (url: string, options?: RequestInit) => void              |
+|  getAllSceneElementsData  |   Get all element data in current scene (including sub-scenes)    |                          () => ElementData[]                          |
+| playAnimationByElementKey |               Execute built-in animation on element               | (elementKey: string,animationOptions: AnimationActionOptions) => void |
+|      cancelAnimation      |                       Cancel all animations                       |                              () => void                               |
+|        toogleView         |                         Toggle 2D/3D view                         |                        (is3D: boolean) => void                        |
+|       toogleCamera        |         Toggle camera type (perspective \| orthographic)          |                (isPerspectiveCamera: boolean) => void                 |
+|     toogleAutoRotate      |                       Toggle auto-rotation                        |                    (isAutoRotate: boolean) => void                    |
+|   updateAutoRotateSpeed   |                    Update auto-rotation speed                     |                        (speed: number) => void                        |
+|    changeCustomCamera     |                       Switch custom camera                        |                        (index: number) => void                        |
+|       enterSubScene       |            Enter sub-scene of current selected element            |                              () => void                               |
+|       exitSubScene        |                          Exit sub-scene                           |                              () => void                               |
+|        tooglePlay         |                            Toggle play                            |                              () => void                               |
+|         prevStep          |                           Previous step                           |                              () => void                               |
+|         nextStep          |                             Next step                             |                              () => void                               |
+|          replay           |                              Replay                               |                              () => void                               |
+|           reset           |                               Reset                               |                              () => void                               |
+|        toggleLoop         |                            Toggle loop                            |                              () => void                               |
+|          zoomIn           |                              Zoom in                              |                              () => void                               |
+|          zoomOut          |                             Zoom out                              |                              () => void                               |
+|        resetCamera        |                         Reset camera view                         |                              () => void                               |
+|        exportImage        |                           Export image                            |                               ()=>void                                |
+|       openFileByUrl       |                         Open file by URL                          |             (url: string, options?: RequestInit) => void              |
 
 **TypeScript Types**
 
@@ -158,8 +160,36 @@ interface LocaleInterface {
 }
 ```
 
+## Player Static Methods
+
+|     Name     |           Description           |              Type              |
+| :----------: | :-----------------------------: | :----------------------------: |
+| defineConfig | Set static global configuration | (config: StaticConfig) => void |
+
+**TypeScript Types**
+
+```ts
+interface StaticConfig {
+  // Global font resource path, affects all text elements, highest priority, suitable for scenarios with only one font
+  fontUrl?: string;
+  // Global font resource definition, suitable for scenarios with multiple fonts
+  fonts?: FontFamily[];
+  // Draco Decoder Path, The default path is unpkg. If the network is not accessible, you can configure the path yourself.
+  dracoDecoderPath?: string;
+}
+
+export interface FontFamily {
+  name: string;
+  styles: {
+    weight: string;
+    fontUrl: string;
+  }[];
+}
+```
+
 ## Element3D Instance Methods
 
-|    Name     |      Description       |            Type             |
-| :---------: | :--------------------: | :-------------------------: |
+|    Name     |           Description           |            Type             |
+| :---------: | :-----------------------------: | :-------------------------: |
 | setDisabled | Set disabled state (grayed out) | (disabled: boolean) => void |
+| setVisible  |     Set element visibility      | (visible: boolean) => void  |

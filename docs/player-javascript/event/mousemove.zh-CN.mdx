@@ -1,0 +1,82 @@
+# 鼠标移动事件
+
+通过配置 `onMouseMove` 参数，你可以监听元素的鼠标移动事件并执行相应的回调函数。
+
+## 使用示例
+
+以下是一个展示如何使用 iCraft Player 组件处理元素鼠标移动事件的示例。
+
+import { Wrap } from "../../../demos";
+
+<Wrap>
+  <iframe
+    src='/demos/mousemove.html'
+    style={{ width: "100%", height: "100%", border: "none" }}
+  />
+</Wrap>
+
+```html copy
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>ICraft Player Click Demo</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #container {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+      }
+      #text {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+      }
+    </style>
+    <script src="https://unpkg.com/@icraft/player@latest/dist/umd/icraft-player.min.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="text"></div>
+    </div>
+  </body>
+  <script>
+    const player = new ICraftPlayer({
+      src: "https://icraft.gantcloud.com/api/static/templates/AWSCloud.iplayer",
+      container: document.getElementById("container"),
+      onMouseMove: (e) => {
+        console.log(e);
+        const { instance: element } = e;
+        const name = element?.options?.name || "";
+        document.getElementById("text").innerText = "Mouse Moved:" + name;
+      },
+    });
+  </script>
+</html>
+
+```
+
+## API
+
+|     属性     |       说明       |              类型               | 默认值  | 是否必填 |
+| :---------: | :-------------: | :-----------------------------: | :----: | :-----: |
+| onMouseMove | 鼠标移动事件回调 | (params: MouseEventParams) => void | undefined |   否    |
+
+### MouseEventParams
+
+```ts
+interface MouseEventParams {
+  instance: Element3D | null;  // 当前元素实例
+  event: MouseEvent;          // 原生鼠标事件对象
+  data: OptionsType | null;   // 元素相关数据
+}
+```

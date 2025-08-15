@@ -1,0 +1,121 @@
+# 动画
+
+我们内置了一些动画类型，可以通过调用 player 实例的方法`playAnimationByElementKey`来执行元素动画
+
+## 如何使用
+
+创建`ICraftPlayer`实例后，调用`playAnimationByElementKey`方法，传入元素的`key`和动画参数，即可执行动
+画。通过`cancelAnimation`方法可以取消当前正在播放的动画。
+
+import { Wrap } from "../../demos";
+
+<Wrap>
+  <iframe
+    src='/demos/animation.html'
+    style={{ width: "100%", height: "100%", border: "none" }}
+  />
+</Wrap>
+
+```html copy
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>ICraft Player Animation Demo</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #container {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+      }
+    </style>
+    <script src="https://unpkg.com/@icraft/player@latest/dist/umd/icraft-player.min.js"></script>
+  </head>
+  <body>
+    <div id="container"></div>
+  </body>
+  <script>
+    const player = new ICraftPlayer({
+      src: "https://icraft.gantcloud.com/api/static/templates/AWSCloud.iplayer",
+      container: document.getElementById("container"),
+      onReady: (player) => {
+        const user = player.getElementsByName("User")?.[0];
+        if (user) {
+          player.playAnimationByElementKey(user.key, {
+            animationDuration: 100,
+            animationType: ICraftPlayer.AnimationType.Rotate,
+          });
+        }
+      },
+      onClick: (e) => {
+        const { instance: Element } = e;
+        if (!Element) {
+          player?.cancelAnimation();
+          return;
+        }
+        if (Element.typeName !== "line") {
+          player?.playAnimationByElementKey(Element.key, {
+            animationDuration: 3,
+            animationType: ICraftPlayer.AnimationType.HeartBeat,
+            animationShowTip: true,
+          });
+        } else {
+          player?.playAnimationByElementKey(Element.key, {
+            animationDuration: 3,
+            animationType: ICraftPlayer.AnimationType.LoopFlow,
+          });
+        }
+      },
+    });
+  </script>
+</html>
+```
+
+## API
+
+### Functions
+
+|           Name            |     description      |                                 type                                  |
+| :-----------------------: | :------------------: | :-------------------------------------------------------------------: |
+|     getElementsByName     | 通过名称获取多个元素 |                     (name: string) => Element3D[]                     |
+| playAnimationByElementKey |  使元素执行内置动画  | (elementKey: string,animationOptions: AnimationActionOptions) => void |
+|      cancelAnimation      |     取消所有动画     |                              () => void                               |
+
+### AnimationActionOptions
+
+|       Name        |                                description                                |     type      |       default        | required |
+| :---------------: | :-----------------------------------------------------------------------: | :-----------: | :------------------: | :------: |
+|   animationType   |                                 动画类型                                  | AnimationType | AnimationType.FadeIn |   true   |
+| animationDuration |                               动画时长(秒)                                |    number     |          2           |   true   |
+|  animationDelay   |                               动画延迟(秒)                                |    number     |          0           |  false   |
+| animationShowTip  |                               动态显示 tip                                |    boolean    |         true         |  false   |
+|    tipContent     |                                 演说文字                                  |    string     |        `name`        |  false   |
+|   tipBackground   |                               演说文字颜色                                |    string     |        white         |  false   |
+|   flowLineColor   |                        流线颜色(只试用于线条元素)                         |    string     |         blue         |  false   |
+| flowLineThinness  | 流线细度系数,控制中间部分的收缩程度，越大中间部分越突出(只试用于线条元素) |    number     |         0.5          |  false   |
+|   flowLineSize    |           流线大小系数,控制流线整体的粗细程度(只试用于线条元素)           |    number     |         0.12         |  false   |
+
+### AnimationType
+
+|     Name      |           description           |
+| :-----------: | :-----------------------------: |
+|    FadeIn     |    淡入 (只试用于非线条元素)    |
+|    FadeOut    |    淡出 (只试用于非线条元素)    |
+|   UpAndDown   |  上下浮动 (只试用于非线条元素)  |
+|   HeartBeat   |    心跳 (只试用于非线条元素)    |
+|  ColorChange  |  颜色变化 (只试用于非线条元素)  |
+|    Bounce     |    跳动 (只试用于非线条元素)    |
+|    Rotate     |    旋转 (只试用于非线条元素)    |
+| EnterSubScene | 进入子场景 (只试用于非线条元素) |
+| ExitSubScene  | 退出子场景 (只试用于非线条元素) |
+|     Draw      |   绘制动画 (只试用于线条元素)   |
+|     Flow      |   流动动画 (只试用于线条元素)   |
+|   LoopFlow    |   循环流动 (只试用于线条元素)   |

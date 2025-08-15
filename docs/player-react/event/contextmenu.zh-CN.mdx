@@ -1,0 +1,84 @@
+import { Callout } from "nextra/components";
+
+# 右键事件
+
+通过配置 `onContextMenu` 参数，可以监听元素的右键事件，并执行相应的回调函数。
+
+## 使用示例
+
+下面是一个示例，展示了如何使用 iCraft Player 组件进行元素右键事件交互。
+
+import { Wrap, ContextMenuDemo } from "../../../demos";
+
+<Wrap>
+  <ContextMenuDemo />
+</Wrap>
+
+```tsx copy
+import React, { useState } from "react";
+import { MouseEventParams, ICraftPlayer } from "@icraft/player-react";
+
+export default () => {
+  const [contextMenu, setContextMenu] = useState<string>();
+  const [position, setPosition] = useState<{ x: number; y: number } | null>(null);
+
+  const onContextMenu = (e: MouseEventParams) => {
+    const { instance: element, event, data } = e;
+    setContextMenu(data?.name || "");
+    setPosition({
+      x: event.offsetX,
+      y: event.offsetY,
+    });
+  };
+
+  return (
+    <div style={style}>
+      <ICraftPlayer
+        src='/templates/AWSCloud.iplayer'
+        onContextMenu={onContextMenu}
+      />
+      {position && (
+        <div style={{ ...textStyle, top: position.y, left: position.x }}>
+          ContextMenu: {contextMenu}
+        </div>
+      )}
+    </div>
+  );
+};
+
+const style = {
+  width: "100%",
+  height: "100%",
+  position: "relative" as const,
+  overflow: "hidden" as const,
+};
+
+const textStyle = {
+  position: "absolute" as const,
+  pointerEvents: "none" as const,
+  backgroundColor: "rgba(0, 0, 0, 0.5)",
+  color: "white",
+  padding: "5px 10px",
+  borderRadius: "5px",
+  width: "fit-content",
+  height: "fit-content",
+  zIndex: 1000,
+};
+
+```
+
+## API
+
+|     Name      | description  |                type                |  default  | required |
+| :-----------: | :----------: | :--------------------------------: | :-------: | :------: |
+| onContextMenu | 右键事件回调 | (params: MouseEventParams) => void | undefined |  false   |
+
+### MouseEventParams
+
+```ts
+interface MouseEventParams {
+  instance: Element3D | null;
+  event: MouseEvent;
+  data: OptionsType | null;
+}
+```

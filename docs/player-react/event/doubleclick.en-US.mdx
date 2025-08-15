@@ -1,0 +1,69 @@
+# Click Events
+
+By configuring the `onDoubleClick` parameter, you can listen to element double click events and execute
+corresponding callback functions.
+
+## Usage Example
+
+Below is an example showing how to handle element double click events with the iCraft Player component.
+
+import { Wrap, DoubleClickDemo } from "../../../demos";
+
+<Wrap>
+  <DoubleClickDemo />
+</Wrap>
+
+```tsx copy
+import React, { useState } from "react";
+import { MouseEventParams, ICraftPlayer } from "@icraft/player-react";
+
+export default () => {
+  const [doubleClicked, setDoubleClicked] = useState<string>();
+
+  const onDoubleClick = (e: MouseEventParams) => {
+    console.log(e);
+    const { instance: element, data } = e;
+    setDoubleClicked(data?.name || "");
+  };
+
+  return (
+    <div style={style}>
+      <ICraftPlayer
+        src='/templates/AWSCloud.iplayer'
+        onDoubleClick={onDoubleClick}
+      />
+      <div style={textStyle}>DoubleClicked: {doubleClicked}</div>
+    </div>
+  );
+};
+
+const style = {
+  width: "100%",
+  height: "100%",
+  position: "relative" as const,
+  overflow: "hidden" as const,
+};
+
+const textStyle = {
+  position: "absolute" as const,
+  bottom: 10,
+  right: 10,
+};
+
+```
+
+## API
+
+|     Name      |         Description         |                Type                |  Default  | Required |
+| :-----------: | :-------------------------: | :--------------------------------: | :-------: | :------: |
+| onDoubleClick | Double click event callback | (params: MouseEventParams) => void | undefined |  false   |
+
+### MouseEventParams
+
+```ts
+interface MouseEventParams {
+  instance: Element3D | null;
+  event: MouseEvent;
+  data: OptionsType | null;
+}
+```

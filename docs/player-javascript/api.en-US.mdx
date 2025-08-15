@@ -1,0 +1,168 @@
+# API
+
+## ICraftPlayerOptions
+
+|         Name         |          Description           |                  Type                   |  Default  | Required |
+| :------------------: | :----------------------------: | :-------------------------------------: | :-------: | :------: |
+|      container       |         Container DOM          |             HTMLDivElement              |           |   true   |
+|         src          |       .iplayer file URL        |                 string                  |           |   true   |
+|     fetchOptions     | Fetch options for file request |               RequestInit               | undefined |  false   |
+|       onClick        |         Click callback         |   (params: MouseEventParams) => void    | undefined |  false   |
+|    onDoubleClick     |     Double click callback      |   (params: MouseEventParams) => void    | undefined |  false   |
+|     onMouseMove      |      Mouse move callback       |   (params: MouseEventParams) => void    | undefined |  false   |
+|    onContextMenu     |     Context menu callback      |   (params: MouseEventParams) => void    | undefined |  false   |
+|       onReady        |         Ready callback         | (instance:ICraftPlayerInstance) => void | undefined |  false   |
+| defaultCustomCamera  |  Default custom camera index   |                 number                  | undefined |  false   |
+| defaultAnimationPlan |  Default animation plan index  |                 number                  | undefined |  false   |
+|     defaultLoop      |     Default loop playback      |                 boolean                 |   false   |  false   |
+|       autoPlay       |         Auto playback          |                 boolean                 |   false   |  false   |
+
+**TypeScript Types**
+
+```ts
+interface MouseEventParams {
+  instance: Element3D | null;
+  event: MouseEvent;
+  data: OptionsType | null;
+}
+```
+
+## Player Instance Methods
+
+|           Name            |                            Description                            |                                 Type                                  |
+| :-----------------------: | :---------------------------------------------------------------: | :-------------------------------------------------------------------: |
+|          getDom           |                              Get DOM                              |                           () => HTMLElement                           |
+|      getElementByKey      |                     Get element by unique key                     |                (key: string) => Element3D \| undefined                |
+|     getElementsByName     |                   Get multiple elements by name                   |                     (name: string) => Element3D[]                     |
+|  getCurrentSceneElements  | Get all element instances in current scene (excluding sub-scenes) |                           () => Element3D[]                           |
+|  getAllSceneElementsData  |   Get all element data in current scene (including sub-scenes)    |                          () => ElementData[]                          |
+| playAnimationByElementKey |               Execute built-in animation on element               | (elementKey: string,animationOptions: AnimationActionOptions) => void |
+|      cancelAnimation      |                       Cancel all animations                       |                              () => void                               |
+|        toogleView         |                         Toggle 2D/3D view                         |                        (is3D: boolean) => void                        |
+|       toogleCamera        |         Toggle camera type (perspective \| orthographic)          |                (isPerspectiveCamera: boolean) => void                 |
+|     toogleAutoRotate      |                       Toggle auto-rotation                        |                    (isAutoRotate: boolean) => void                    |
+|   updateAutoRotateSpeed   |                    Update auto-rotation speed                     |                        (speed: number) => void                        |
+|    changeCustomCamera     |                       Switch custom camera                        |                        (index: number) => void                        |
+|       enterSubScene       |            Enter sub-scene of current selected element            |                              () => void                               |
+|       exitSubScene        |                          Exit sub-scene                           |                              () => void                               |
+|        tooglePlay         |                            Toggle play                            |                              () => void                               |
+|         prevStep          |                           Previous step                           |                              () => void                               |
+|         nextStep          |                             Next step                             |                              () => void                               |
+|          replay           |                              Replay                               |                              () => void                               |
+|           reset           |                               Reset                               |                              () => void                               |
+|        toggleLoop         |                            Toggle loop                            |                              () => void                               |
+|          zoomIn           |                              Zoom in                              |                              () => void                               |
+|          zoomOut          |                             Zoom out                              |                              () => void                               |
+|        resetCamera        |                         Reset camera view                         |                              () => void                               |
+|        exportImage        |                           Export image                            |                               ()=>void                                |
+|       openFileByUrl       |                         Open file by URL                          |             (url: string, options?: RequestInit) => void              |
+
+**TypeScript Types**
+
+```ts
+// Element type
+type Element3D =
+  | Cube
+  | Cylinder
+  | Text
+  | Area
+  | Icon
+  | Line
+  | Point
+  | Model
+  | CustomModel
+  | ImageModel
+  | Image;
+
+// Element data
+interface ElementData {
+  key: string;
+  type: string;
+  options: OptionsType;
+}
+
+// Animation action options
+interface AnimationActionOptions {
+  // Animation type
+  animationType?: AnimationType;
+  // Animation duration
+  animationDuration?: number;
+  // Animation delay
+  animationDelay?: number;
+  // Show dynamic tip
+  animationShowTip?: boolean;
+  // Narration text
+  tipContent?: string | HTMLElement;
+  // Narration text color
+  tipBackground?: string;
+  // Flow line color (line elements only)
+  flowLineColor?: string;
+  // Flow line thinness factor (controls middle section contraction, higher value means more prominent middle section)
+  flowLineThinness?: number;
+  // Flow line size factor (controls overall line thickness)
+  flowLineSize?: number;
+}
+
+// Animation type
+enum AnimationType {
+  // Fade in (non-line elements only)
+  FadeIn = "fadeIn",
+  // Fade out (non-line elements only)
+  FadeOut = "fadeOut",
+  // Float up/down (non-line elements only)
+  UpAndDown = "upAndDown",
+  // Heartbeat (non-line elements only)
+  HeartBeat = "heartBeat",
+  // Color change (non-line elements only)
+  ColorChange = "colorChange",
+  // Bounce (non-line elements only)
+  Bounce = "bounce",
+  // Rotate (non-line elements only)
+  Rotate = "rotate",
+  // Enter sub-scene (non-line elements only)
+  EnterSubScene = "enterSubScene",
+  // Exit sub-scene (non-line elements only)
+  ExitSubScene = "exitSubScene",
+  // Draw animation (line elements only)
+  Draw = "draw",
+  // Flow animation (line elements only)
+  Flow = "flow",
+  // Loop flow (line elements only)
+  LoopFlow = "loopFlow",
+}
+```
+
+## Player Static Methods
+
+|     Name     |           Description           |              Type              |
+| :----------: | :-----------------------------: | :----------------------------: |
+| defineConfig | Set static global configuration | (config: StaticConfig) => void |
+
+**TypeScript Types**
+
+```ts
+interface StaticConfig {
+  // Global font resource path, affects all text elements, highest priority, suitable for scenarios with only one font
+  fontUrl?: string;
+  // Global font resource definition, suitable for scenarios with multiple fonts
+  fonts?: FontFamily[];
+  // Draco Decoder Path, The default path is unpkg. If the network is not accessible, you can configure the path yourself.
+  dracoDecoderPath?: string;
+}
+
+export interface FontFamily {
+  name: string;
+  styles: {
+    weight: string;
+    fontUrl: string;
+  }[];
+}
+```
+
+
+## Element3D Instance Methods
+
+|    Name     |           Description           |            Type             |
+| :---------: | :-----------------------------: | :-------------------------: |
+| setDisabled | Set disabled state (grayed out) | (disabled: boolean) => void |
+| setVisible  |     Set element visibility      | (visible: boolean) => void  |

@@ -1,0 +1,23 @@
+# 事件
+
+提供常用事件回调，如点击事件、双击事件、鼠标移动事件、右键事件等。
+
+## API
+
+|     Name      |   description    |                  type                   |  default  | required |
+| :-----------: | :--------------: | :-------------------------------------: | :-------: | :------: |
+|    onClick    |   点击事件回调   |   (params: MouseEventParams) => void    | undefined |  false   |
+| onDoubleClick |   双击事件回调   |   (params: MouseEventParams) => void    | undefined |  false   |
+|  onMouseMove  | 鼠标移动事件回调 |   (params: MouseEventParams) => void    | undefined |  false   |
+| onContextMenu |   右键事件回调   |   (params: MouseEventParams) => void    | undefined |  false   |
+|    onReady    |   准备就绪回调   | (instance:ICraftPlayerInstance) => void | undefined |  false   |
+
+### MouseEventParams
+
+```ts
+interface MouseEventParams {
+  instance: Element3D | null;
+  event: MouseEvent;
+  data: OptionsType | null;
+}
+```

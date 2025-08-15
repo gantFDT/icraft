@@ -38,7 +38,7 @@ import { Wrap, ServerStatusDemo } from "../../../demos";
   <Tabs.Tab>
 ```tsx copy filename=index.tsx
 
-import { ClickParams, Element3D, ICraftPlayer, ICraftPlayerInstance } from "@icraft/player-react";
+import { MouseEventParams, Element3D, ICraftPlayer, ICraftPlayerInstance } from "@icraft/player-react";
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { getData } from "./utils";
@@ -70,7 +70,7 @@ export default () => {
     }
   };
 
-  const onClick = (params: ClickParams) => {
+  const onClick = (params: MouseEventParams) => {
     const { instance: element } = params;
     const player = playerRef.current;
     // clear old tip
