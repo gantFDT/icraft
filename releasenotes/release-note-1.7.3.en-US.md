@@ -1,4 +1,4 @@
-# Release Notes - 1.7.3 (2024-9-17)
+# Release Notes - 1.7.3 (2025-9-17)
 
 ![iCraft Editor](https://raw.githubusercontent.com/gantFDT/icraft/main/public/images/banner.jpg)
 
