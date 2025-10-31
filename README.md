@@ -99,8 +99,6 @@ No programming knowledge is required to use iCraft Editor. It's not just for arc
 You can use iCraft Player for project integration to display 3D scenes, create element interactions, and animate effects. For details, please refer to [iCraft Player](https://github.com/gantFDT/icraft/blob/main/player-react.README.md)
 
 ## Conclusion
-The transition from 2D to 3D is an inevitable trend in architecture diagram development. As technology continues to advance and application requirements increase, 3D architecture diagrams will play important roles in more fields.
-
 From 2D to 3D, iCraft Editor helps you easily create intuitive three-dimensional architecture diagrams, making complex systems clear at a glance!
 
 iCraft Editor Official Website
