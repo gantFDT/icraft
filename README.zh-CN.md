@@ -98,8 +98,6 @@ iCraft Editor 让你能够清晰地呈现复杂的架构设计。无论是细致
 可以使用iCraft Player进行项目集成，展示3D场景、做元素的联动以及动画效果, 详情请参考 [iCraft Player](https://github.com/gantFDT/icraft/blob/main/player-react.README.md)
 
 ## 结语
-从2D到3D的转变是架构图发展的必然趋势。随着技术的不断进步和应用需求的不断提高，3D架构图将在更多领域发挥重要作用。
-
 从2D到3D，iCraft 3D编辑器助你轻松绘制直观立体架构图，让复杂系统一目了然！
 
 iCraft Editor官网 International： [https://icraft.design](https://icraft.design)
